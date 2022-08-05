@@ -5,6 +5,8 @@ import history from "./history";
 import Routes from './routes';
 import { AuthProvider } from "./Context/authContext";
 
+import './assets/styles/global.css';
+
 function App() {
   return (
     <AuthProvider>

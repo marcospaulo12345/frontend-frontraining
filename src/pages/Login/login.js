@@ -12,7 +12,7 @@ import './styles.css'
 
 
 const schema = yup.object().shape({
-    nickname: yup.string().required('Esse campo é obrigatório'),
+    email: yup.string().required('Esse campo é obrigatório'),
     password: yup.string().required('Esse campo é obrigatório'),
 }).required();
 
@@ -70,7 +70,7 @@ export default function Login(){
                         <button type='submit' onClick={() => clearErrors()}>Entrar</button>
 
                         <h3>Não possui uma conta?</h3>
-                        <a href="/register">clique aqui</a>
+                        <a href="/cadastro">clique aqui</a>
                     </form>
                 </div>
                 <div id='login-body-right'>

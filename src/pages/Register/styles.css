@@ -1,79 +1,58 @@
-#login{
+#register{
     width: 100%;
     height: 100%;
     background-color: #262626;
 }
 
-#login-body {
+#register-body {
     display: flex;
 }
 
-#login-body-left {
+#register-body-left {
     width: 50%;
     height: 100vh;
     background-color: #191919;
 }
 
-#login-body-left img{
+#register-body-left img{
     width: 300px;
     margin-left: 10px;
     margin-top: 10px;
 }
 
-#login-body-left form {
+#register-body-left form {
+    height:90vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
-#title-login {
+#title-register {
     width: 60%;
     margin-bottom: 30px;
     color: #fff;
 }
 
-#title-login h1 {
+#title-register h1 {
     font: 700 2.0rem Poppins;
 }
 
-#title-login h3 {
+#title-register h3 {
     font: 400 1.0rem Poppins;
 }
 
-#login-body-left form{
+#register-body-left form{
     padding: 20px;
 }
 
-#login-body-left form input[name="email"] {
-    border-top-left-radius: 0.4rem;
-    border-top-right-radius: 0.4rem;
-}
-#login-body-left form input[name="password"] {
-    border-bottom-left-radius: 0.4rem;
-    border-bottom-right-radius: 0.4rem;
-}
-
-#login-body-left form button{
-    width: 60%;
-    background-color: #262626;
-    color: #fff;
-    font-size: 1.4rem;
-    border: none;
-    border-radius: 0.4rem;
-    outline: 0;
-    margin: 4rem 0;
-    padding: 15px;
-    cursor: pointer;
-}
-
-.inputSpan {
+.reg-inputSpan {
     width: 60%;
     display: inline-block;
     position: relative;
 }
 
-.inputSpan input{
+.reg-inputSpan input{
     width: 100%;
     height: 10px;
     font-size: 1.4rem;
@@ -83,7 +62,12 @@
     border: 1px solid var(--color-line-in-white);
 }
 
-.inputSpan span{
+::placeholder {
+    color: #fff;
+    opacity: 0.9;
+}
+
+.reg-inputSpan span{
     position: absolute;
     height: 35px;
     width: 35%;
@@ -99,7 +83,7 @@
     background-color: #e9bdbd;
 }
 
-#apiSpan {
+#reg-apiError {
     width: 60%;
 
     color: #891f1e;
@@ -111,61 +95,84 @@
     background-color: #e9bdbd;
 }
 
-#login-body-left form h3 {
+#register-body-left form input[name="nickname"] {
+    border-top-left-radius: 0.4rem;
+    border-top-right-radius: 0.4rem;
+}
+#register-body-left form input[name="password"] {
+    border-bottom-left-radius: 0.4rem;
+    border-bottom-right-radius: 0.4rem;
+}
+
+#register-body-left form button{
+    width: 60%;
+    background-color: #262626;
+    color: #fff;
+    font-size: 1.4rem;
+    border: none;
+    border-radius: 0.4rem;
+    outline: 0;
+    margin: 2rem 0;
+    padding: 15px;
+    cursor: pointer;
+}
+
+#register-body-left form h3 {
     color: #fff;
     font: 400 1.2rem Poppins;
 }
-#login-body-left form a {
+#register-body-left form a {
     color: #24A5B2;
     font: 700 1.2rem Poppins;
 }
 
-#login-body-right {
+#register-body-right {
     width: 50vw;
+
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
-#login-body-right img {
+#register-body-right img {
     width: 90%;
 }
 
 @media screen and (max-width: 768px){
-    #login-body-right{
+    #register-body-right{
         display: none;
     }
 
-    #login-body-left{
+    #register-body-left{
         width: 100%;
     }
 
-    .inputSpan{
+    .reg-inputSpan{
         display: flex;
         flex-direction: column;
         width: 100%;
         max-width: 300px;
     }
 
-    .inputSpan input {
+    .reg-inputSpan input {
         width: 100%;
         height: 60px;
         max-width: 300px;
         padding: 10px;
     }
-    .inputSpan span {
+    .reg-inputSpan span {
         position: relative;
         width: 100%;
         padding: 5px 5px;
         margin: 10px 0px;
         font: 400 0.8rem Poppins;
     }
-    #apiSpan {
+    #reg-apiError {
         width: 100%;
         max-width: 300px;
     }
-    #login-body-left form button{
+    #register-body-left form button{
         width: 100%;
         height: 60px;
         max-width: 300px;

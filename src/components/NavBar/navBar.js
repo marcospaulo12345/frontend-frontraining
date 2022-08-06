@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from 'react-router-dom';
 
 import Logo from '../../assets/images/logo.png';
 
@@ -12,14 +13,25 @@ export default function NavBar(){
             </div>
             <div className="nav-right">
                 <ul className="nav-menu">
-                    <li className="nav-item">Home</li>
-                    <li className="nav-item">Desafios</li>
-                    <li className="nav-item">Soluções</li>
-                    <li className="nav-item">Marcos</li>
+                    <li className="nav-item">
+                        <Link to="/"> Home </Link>
+                    </li>
+                    <li className="nav-item">
+                        <Link to="/">Desafios</Link>
+                    </li>
+                    <li className="nav-item">
+                        <Link to="/">Soluções</Link>
+                    </li>
+                    <li className="nav-item" id="name-user">
+                        <Link to="/">
+                            <p>Marcos</p>
+                            <div className="icon-user">
+                                <p>M</p>
+                            </div>
+                        </Link>
+                        
+                    </li>
                 </ul>
-                <div className="icon-user">
-                    <p>M</p>
-                </div>
             </div>
         </div>
     );

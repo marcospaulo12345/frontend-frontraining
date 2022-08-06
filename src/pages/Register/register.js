@@ -1,4 +1,5 @@
 import React, {useContext} from "react";
+import { Link } from "react-router-dom";
 import {useForm} from 'react-hook-form';
 import {yupResolver} from '@hookform/resolvers/yup';
 import * as yup from 'yup';
@@ -86,7 +87,7 @@ export default function Register(){
 
                         <button type='submit' onClick={() => clearErrors()} >Cadastrar</button>
                         <h3>Já possui uma conta?</h3>
-                        <a href="/login">clique aqui</a>
+                        <Link to="/login">clique aqui</Link>
                     </form>
                 </div>
                 <div id='register-body-right'>

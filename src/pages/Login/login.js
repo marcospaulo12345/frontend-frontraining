@@ -1,4 +1,5 @@
 import React, {useContext} from "react";
+import { Link } from "react-router-dom";
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
@@ -9,6 +10,7 @@ import Logo from '../../assets/images/logo.png'
 import imageReview from '../../assets/images/imagemReview.svg'
 
 import './styles.css'
+import { isCompositeComponentWithType } from "react-dom/test-utils";
 
 
 const schema = yup.object().shape({
@@ -70,7 +72,7 @@ export default function Login(){
                         <button type='submit' onClick={() => clearErrors()}>Entrar</button>
 
                         <h3>Não possui uma conta?</h3>
-                        <a href="/cadastro">clique aqui</a>
+                        <Link to="/cadastro">clique aqui</Link>
                     </form>
                 </div>
                 <div id='login-body-right'>

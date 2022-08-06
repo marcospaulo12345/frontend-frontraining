@@ -10,6 +10,17 @@ export default function NavBar(){
             <div className="nav-left">
                 <img src={Logo}/>
             </div>
+            <div className="nav-right">
+                <ul className="nav-menu">
+                    <li className="nav-item">Home</li>
+                    <li className="nav-item">Desafios</li>
+                    <li className="nav-item">Soluções</li>
+                    <li className="nav-item">Marcos</li>
+                </ul>
+                <div className="icon-user">
+                    <p>M</p>
+                </div>
+            </div>
         </div>
     );
 }

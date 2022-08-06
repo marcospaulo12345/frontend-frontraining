@@ -95,7 +95,7 @@
     background-color: #e9bdbd;
 }
 
-#register-body-left form input[name="nickname"] {
+#register-body-left form input[name="username"] {
     border-top-left-radius: 0.4rem;
     border-top-right-radius: 0.4rem;
 }

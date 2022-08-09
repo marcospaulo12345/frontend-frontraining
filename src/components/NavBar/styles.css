@@ -2,6 +2,7 @@
     width: 100%;
     position: fixed;
     display: flex;
+    align-items: center;
     flex-direction: row;
     justify-content: space-between;
 }
@@ -67,4 +68,13 @@
 
 .icon-user p {
     font: 700 1.2rem Roboto;
+}
+
+.dropup-content {
+    display: none;
+    position: absolute
+}
+
+.btn-user:hover .dropup-content{
+    display: block;
 }

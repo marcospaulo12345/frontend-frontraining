@@ -16,7 +16,7 @@
 }
 
 .home-left{
-    width: 80%;
+    width: 50%;
     margin-left: 10px;
     margin-right: 50px;
 }
@@ -31,7 +31,7 @@
 }
 
 .home-left button {
-    width: 455px;
+    width: 96%;
     height: 75px;
 
     color: #fff;
@@ -64,4 +64,10 @@
 .home-right img {
     width: 90%;
     height: 90%;
+}
+
+@media screen and (max-width: 768px){
+    .home-right{
+        display: none;
+    }
 }

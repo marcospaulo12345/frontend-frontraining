@@ -34,7 +34,7 @@ export default function Register(){
     const registro = async (data) => {
         console.log(data)
         await handleRegister({"email":data.email, "username":data.username, "password":data.password}).catch(response => {
-            setError('apiError', {message: response.error});
+            setError('apiError', {message: response.message});
             //history.go(0);
         });
 

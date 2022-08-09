@@ -10,7 +10,6 @@ import Logo from '../../assets/images/logo.png'
 import imageReview from '../../assets/images/imagemReview.svg'
 
 import './styles.css'
-import { isCompositeComponentWithType } from "react-dom/test-utils";
 
 
 const schema = yup.object().shape({
@@ -23,14 +22,14 @@ export default function Login(){
         resolver: yupResolver(schema)
     });
 
-    const { authenticated, handleLogin } = useContext(Context);
+    const { handleLogin } = useContext(Context);
     //console.log(authenticated);
 
     function authenticate(data,e) {
         e.preventDefault();
         console.log(data);
         handleLogin({"email": data.email, "password": data.password}).catch(response => {
-            setError('apiError', {message: response.error});
+            setError('apiError', {message: response.message});
         });
     }
 
@@ -39,7 +38,7 @@ export default function Login(){
             <div id='login-body'>
                 <div id='login-body-left'>
                     <header>
-                        <img src={Logo}></img>
+                        <img src={Logo} alt='Logo'></img>
                     </header>
                     
                     <form onSubmit={handleSubmit(authenticate)}>
@@ -55,7 +54,7 @@ export default function Login(){
                                 type='text'
                                 {...register('email')}
                             />
-                            {errors.nickname && <span><b>Erro:</b> {errors.nickname.message}</span>}
+                            {errors.email && <span><b>Erro:</b> {errors.email.message}</span>}
                         </div>
 
                         <div className='inputSpan'>

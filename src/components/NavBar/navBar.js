@@ -1,15 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
 import {Link} from 'react-router-dom';
 
 import Logo from '../../assets/images/logo.png';
+import { Context } from "../../Context/authContext";
 
 import './styles.css'
 
 export default function NavBar(){
+    const {authenticated, handleLogout, user} = useContext(Context);
+
     return (
         <div className="navbar">
             <div className="nav-left">
-                <img src={Logo}/>
+                <img src={Logo} alt="Logo"/>
             </div>
             <div className="nav-right">
                 <ul className="nav-menu">
@@ -23,12 +26,21 @@ export default function NavBar(){
                         <Link to="/">Soluções</Link>
                     </li>
                     <li className="nav-item" id="name-user">
-                        <Link to="/">
-                            <p>Marcos</p>
-                            <div className="icon-user">
-                                <p>M</p>
+                        {authenticated ? (
+                            <div className="btn-user">
+                                <Link >
+                                    <p>{user.username}</p>
+                                    <div className="icon-user">
+                                        <p>{user.username[0].toUpperCase()}</p>
+                                    </div>
+                                </Link>
+                                <div class="dropup-content">
+                                    <Link to="#">Perfil</Link>
+                                    <Link to="/" onClick={() => handleLogout()}>Sair</Link>
+                                </div>
                             </div>
-                        </Link>
+                        ): <Link to="/login">Login</Link>}
+                        
                         
                     </li>
                 </ul>

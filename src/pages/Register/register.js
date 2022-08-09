@@ -8,6 +8,7 @@ import { Context } from "../../Context/authContext";
 
 import Logo from "../../assets/images/logo.png"
 import imageReview from '../../assets/images/imagemReview.svg';
+import history from "../../history";
 
 import './styles.css'
 
@@ -45,7 +46,7 @@ export default function Register(){
             <div id='register-body'>
                 <div id='register-body-left'>
                     <header>
-                        <img src={Logo}></img>
+                        <img src={Logo} onClick={() => history.push('/')} alt="Logo"></img>
                     </header>
                     
                     <form onSubmit={handleSubmit(registro)}>
@@ -75,6 +76,7 @@ export default function Register(){
                         </div>
                         <div className="reg-inputSpan">
                             <input 
+                                className="input-password"
                                 placeholder='Senha' 
                                 title="Password"  
                                 name='password' 

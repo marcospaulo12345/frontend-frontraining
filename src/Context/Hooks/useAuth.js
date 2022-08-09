@@ -72,7 +72,7 @@ export default function useAuth(){
         localStorage.removeItem('user');
         api.defaults.headers.Authorization = undefined;
 
-        //history.push('/login');
+        history.go(0);
     }
 
     return {authenticated, handleLogin, handleRegister, user, handleLogout}

@@ -8,6 +8,7 @@ import { Context } from "../../Context/authContext";
 
 import Logo from '../../assets/images/logo.png'
 import imageReview from '../../assets/images/imagemReview.svg'
+import history from "../../history";
 
 import './styles.css'
 
@@ -38,7 +39,7 @@ export default function Login(){
             <div id='login-body'>
                 <div id='login-body-left'>
                     <header>
-                        <img src={Logo} alt='Logo'></img>
+                        <img src={Logo} onClick={() => history.push('/')} alt='Logo'></img>
                     </header>
                     
                     <form onSubmit={handleSubmit(authenticate)}>

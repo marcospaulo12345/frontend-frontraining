@@ -5,8 +5,18 @@
     align-items: center;
     flex-direction: row;
     justify-content: space-between;
+    animation: slideNavY 1s;
 }
 
+@keyframes slideNavY {
+    from {
+        transform: translateY(-10px);
+    }
+
+    to {
+        transform: translateY(0px);
+    }
+}
 
 .nav-left img{
     width: 300px;
@@ -77,4 +87,17 @@
 
 .btn-user:hover .dropup-content{
     display: block;
+}
+
+.btn-login {
+    background-color: #3F3D56;
+    padding: 10px;
+    border-radius: 10px;
+    margin-right: 10px !important;
+    font-size: 1rem;
+}
+
+.btn-login:hover {
+    background-color: #52506b;
+    color: #fff !important;
 }

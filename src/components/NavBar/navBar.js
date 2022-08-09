@@ -39,7 +39,7 @@ export default function NavBar(){
                                     <Link to="/" onClick={() => handleLogout()}>Sair</Link>
                                 </div>
                             </div>
-                        ): <Link to="/login">Login</Link>}
+                        ): <Link to="/login" className="btn-login">Entrar</Link>}
                         
                         
                     </li>

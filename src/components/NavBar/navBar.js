@@ -6,11 +6,11 @@ import { Context } from "../../Context/authContext";
 
 import './styles.css'
 
-export default function NavBar(){
+export default function NavBar({isHome}){
     const {authenticated, handleLogout, user} = useContext(Context);
 
     return (
-        <div className="navbar">
+        <div className="navbar" style={{'background-color': isHome === true ? null : '#2C2C2C'}}>
             <div className="nav-left">
                 <img src={Logo} alt="Logo"/>
             </div>
@@ -20,7 +20,7 @@ export default function NavBar(){
                         <Link to="/"> Home </Link>
                     </li>
                     <li className="nav-item">
-                        <Link to="/">Desafios</Link>
+                        <Link to="/desafios">Desafios</Link>
                     </li>
                     <li className="nav-item">
                         <Link to="/">Soluções</Link>
@@ -36,7 +36,7 @@ export default function NavBar(){
                                 </Link>
                                 <div class="dropup-content">
                                     <Link to="#">Perfil</Link>
-                                    <Link to="/" onClick={() => handleLogout()}>Sair</Link>
+                                    <Link to="#" onClick={() => handleLogout()}>Sair</Link>
                                 </div>
                             </div>
                         ): <Link to="/login" className="btn-login">Entrar</Link>}

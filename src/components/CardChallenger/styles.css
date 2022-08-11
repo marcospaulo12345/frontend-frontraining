@@ -1,0 +1,46 @@
+.card {
+    width: 334px;
+    height: 534px;
+    background: #2C2C2C;
+    border-radius: 20px;
+    box-shadow:  5px 5px 7px #151515,
+             -5px -5px 7px #1d1d1d;
+    cursor: pointer;
+}
+
+.card-body {
+    margin: 10px;
+}
+
+.card img {
+    border-radius: 20px 20px 0 0px;
+}
+
+.title {
+    color: #fff;
+    font: 700 1.3rem Raleway;
+    margin: 14px 0 10px 0;
+}
+
+.span-tools {
+    display: flex;
+    justify-content: space-between;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.span-tools .html {
+    color: #6ABFDB;
+    font: 700 1rem Roboto;
+    
+}
+
+.span-tools .css {
+    color: #3E54A3;
+    font: 700 1rem Roboto;
+}
+
+.describe {
+    color: #fff;
+    font: 400 1rem Roboto;
+}

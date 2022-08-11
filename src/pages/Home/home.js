@@ -9,7 +9,7 @@ import './styles.css';
 export default function Home(){
     return (
         <div className="home">
-            <NavBar />
+            <NavBar isHome={true}/>
             <div className="home-body">
                 <div className="home-left">
                     <h1>Desafios FrontEnd</h1>

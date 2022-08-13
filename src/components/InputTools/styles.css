@@ -52,6 +52,18 @@
     border-radius: 10px;
 }
 
+.dropmenu-tools input {
+    margin: 4px 2px 4px 2px;
+    width: 98%;
+    font-size: 0.8rem;
+    color: #fff !important;
+    padding: 1rem;
+    background: #191919;
+    border: 1px solid #fff;
+    border-radius: 0.4rem;
+    margin-top: 10px;
+}
+
 scroll-container p {
     padding: 2px 0 2px 0;
     color: #fff;

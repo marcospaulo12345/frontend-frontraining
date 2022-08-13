@@ -24,30 +24,39 @@ export default function CreateChallege() {
                     <label htmlFor="title">Título</label>
                     <input type="text" placeholder="Título do desafio" name="title" id="title" className="input-normal"></input>
 
-                    <label htmlFor="description">Descrição</label>
+                    <label htmlFor="description" className="description">Descrição</label>
                     <textarea placeholder="Descrição do desafio" id="description"></textarea>
 
-                    <label>Cores</label>
-                    <InputColors />
+                    <div className="color-level">
+                        <div className="color-div">
+                            <label>Cores</label>
+                            <InputColors />
+                        </div>
+                        <div className="level-div">
+                            <label htmlFor="level">Nível</label>
+                            <select name="level" id="level">
+                                <option value="0">Nível</option>
+                                <option value="1">Fácil</option>
+                                <option value="2">Médio</option>
+                                <option value="3">Difícil</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div className="fonts-tools">
+                        <div className="font-div">
+                            <label>Fontes</label>
+                            <InputFonts />
+                        </div>
 
-                    <label htmlFor="level">Nível</label>
-                    <select name="level" id="level">
-                        <option value="0">Nível</option>
-                        <option value="1">Fácil</option>
-                        <option value="2">Médio</option>
-                        <option value="3">Difícil</option>
-                    </select>
-
-                    <label>Fontes</label>
-                    <InputFonts />
-
-                    <label>Ferramentas</label> 
-                    <InputTools />
-
+                        <div>
+                            <label>Ferramentas</label> 
+                            <InputTools />
+                        </div>
+                    </div>
                     <label htmlFor="assets">Assets</label>
                     <input type='text' placeholder="Link para os assets" id="assets" className="input-normal"/>
                     
-                    <button>Enviar</button>
+                    <button className="btn-submit">Enviar</button>
                 </div>
             </form> 
         </section>

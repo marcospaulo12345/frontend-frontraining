@@ -38,13 +38,14 @@
     position: absolute;
     background-color: #262626;
     border-radius: 10px;
+    z-index: 9999;
 }
 
 .drop-menu-fonts input {
     margin: 4px 2px 4px 2px;
     width: 98%;
     font-size: 0.8rem;
-    color: #000 !important;
+    color: #fff !important;
     padding: 1rem;
     background: #191919;
     border: 1px solid #fff;

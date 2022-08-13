@@ -4,6 +4,7 @@ import { BlockPicker } from "react-color";
 import './styles.css'
 
 import Add from '../../assets/images/Add.png';
+import Clear from '../../assets/images/Clear.png'
 
 export default function InputColors() {
 
@@ -14,6 +15,13 @@ export default function InputColors() {
         e.preventDefault();
         setInputColorVisible(!inputColorVisible);
         
+    }
+
+    function removeColor(index) {
+        setBlockPickerColor([
+            ...blockPickerColor.slice(0, index),
+            ...blockPickerColor.slice(index + 1, blockPickerColor.length)
+        ]);
     }
 
     function handleChangeColor(color) {
@@ -31,14 +39,16 @@ export default function InputColors() {
                                 backgroundColor: `${value}`,
                             }}
                             className='color-select'
-                        ></div>
+                        >
+                            <img src={Clear} width='14' height='14' onClick={() => removeColor(index)} alt='icon remover'/>
+                        </div>
                     ))}
                 </div>
             ) : null}
             
             <div className='btn-color'>
                 <button onClick={(e) => handleColorPickle(e)}>
-                    <img src={Add} />
+                    <img src={Add} alt='Icon adicionar' />
                 </button>
                 <div className="pickle-color" style={{'display': inputColorVisible === true ? 'block' : 'none'}}>
                     <BlockPicker

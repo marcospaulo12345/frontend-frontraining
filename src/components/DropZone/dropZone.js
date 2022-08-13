@@ -30,7 +30,7 @@ const Dropzone = ({onFileUploaded}) => {
             { selctedFileUrl
                 ? <img src={selctedFileUrl} alt="Point thumbnail" />
                 : (
-                    <img src={Add} className='icon-add'/>
+                    <img src={Add} className='icon-add' alt="Icon adicionar"/>
                 ) 
             }
         </div>

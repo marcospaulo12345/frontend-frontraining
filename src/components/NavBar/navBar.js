@@ -28,7 +28,7 @@ export default function NavBar({isHome}){
                     <li className="nav-item" id="name-user">
                         {authenticated ? (
                             <div className="btn-user">
-                                <Link >
+                                <Link to='#'>
                                     <p>{user.username}</p>
                                     <div className="icon-user">
                                         <p>{user.username[0].toUpperCase()}</p>

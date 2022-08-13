@@ -7,7 +7,7 @@ import "./styles.css"
 export default function CardChallenger() {
     return(
         <section className="card">
-            <img src={Page01} width="334" height="234"></img>
+            <img src={Page01} width="334" height="234" alt="Imagem Desafio"></img>
             <div className="card-body">
                 <h1 className="title">NFT preview card component</h1>
 

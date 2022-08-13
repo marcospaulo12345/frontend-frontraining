@@ -11,7 +11,6 @@ export default function useAuth(){
         const user = localStorage.getItem('user');
 
         if(token && user){
-            console.log('teste')
             api.defaults.headers.Authorization = `Bearer ${JSON.parse(token)}`
             api.defaults.headers.User = JSON.stringify(user);
             setUser(JSON.parse(user));

@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from "react";
 import axios from 'axios';
-import _ from 'lodash';
 
 import "./styles.css";
 
@@ -32,9 +31,15 @@ export default function InputFonts() {
             lista.push(res.data.items[i].family)
         }
         setListFonts(lista);
-        console.log(listFonts)
     }
     
+    function removeFont(index) {
+        setSelectFont([
+            ...selectFont.slice(0, index),
+            ...selectFont.slice(index + 1, selectFont.length)
+        ]);
+    }
+
     useEffect(() => {
         getFonts();
     }, []);
@@ -50,14 +55,14 @@ export default function InputFonts() {
                     {Object.values(selectFont).map((value, index) => (
                         <div className="added-font" key={index}>
                             <p>{value}</p>
-                            <img src={Clear} width='15' height='15'/>
+                            <img src={Clear} alt='Icon remover' width='15' height='15' onClick={() => removeFont(index)}/>
                         </div>
                     ))}
                 </div>
             ): null}
                 <div className="btn-menu">
                     <button onClick={(e) => handleMenu(e)}>
-                        <img src={Add} width='24' height='24'/>
+                        <img src={Add} width='34' height='34' alt="Icon Adicionar"/>
                     </button>
                     <div className="drop-menu-fonts" style={{'display': isVisible ? 'block' : 'none'}}>
                         <input placeholder="Buscar fontes" onChange={e => setSeachFonts(e.target.value)}/>

@@ -12,17 +12,25 @@
     height: 50px;
     border-radius: 50%;
     border: 1px solid white;
+    margin-right: 4px;
+}
+
+.color-select img {
+    background-color: #262626;
+    border-radius: 50%;
+    cursor: pointer;
 }
 
 .pickle-color {
     position: absolute;
-    margin-top: 54px;
+    margin-top: 60px;
+    margin-left: -60px;
+    z-index: 9999;
 }
 
 .btn-color {
     width: 170px;
     display: flex;
-    justify-content: center;
 }
 
 .btn-color button {
@@ -31,9 +39,10 @@
     border-radius: 50%;
     background: #262626;
     border: none;
+    cursor: pointer;
 }
 
 .btn-color img {
-    width: 20px;
-    height: 20px;
+    width: 34px;
+    height: 34px;
 }

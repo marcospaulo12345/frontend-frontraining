@@ -1,0 +1,15 @@
+.dropzone {
+    width: 400px;
+    height: 266px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #262626;
+    border-radius: 20px;
+    margin-top: 10px;
+}
+
+.icon-add {
+    width: 90px;
+    height: 90px;
+}

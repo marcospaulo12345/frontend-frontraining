@@ -1,0 +1,59 @@
+.input-tools {
+    display: flex;
+    margin-top: 10px;
+    align-items: center;
+}
+
+.selected-tools {
+    display: flex;
+}
+
+.selected-tools div {
+    display: flex;
+}
+
+.selected-tool {
+    margin-right: 10px;
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 8px 0px 8px;
+    background-color: #262626;
+    align-items: center;
+    width: 100px;
+    height: 40px;
+    border-radius: 20px;
+    color: #fff;
+}
+
+.selected-tool p {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-right: 4px;
+    font: 400 0.8rem Roboto;
+}
+
+.selected-tool img {
+    cursor: pointer;
+}
+
+.btn-tools button {
+    width: 50px;
+    height: 50px;
+    border-radius: 20px;
+    background-color: #262626;
+    border: none;
+    cursor: pointer;
+}
+
+.dropmenu-tools {
+    position: absolute;
+    background-color: #262626;
+    border-radius: 10px;
+}
+
+scroll-container p {
+    padding: 2px 0 2px 0;
+    color: #fff;
+    cursor: pointer;
+}

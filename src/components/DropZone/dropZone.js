@@ -2,6 +2,10 @@ import React, { useCallback, useState } from "react";
 
 import { useDropzone } from "react-dropzone";
 
+import Add from '../../assets/images/Add.png'
+
+import "./styles.css";
+
 const Dropzone = ({onFileUploaded}) => {
     const  [selctedFileUrl, setSelectFileUrl] = useState('');
 
@@ -26,9 +30,7 @@ const Dropzone = ({onFileUploaded}) => {
             { selctedFileUrl
                 ? <img src={selctedFileUrl} alt="Point thumbnail" />
                 : (
-                    <p>
-                        Imagem do desafio
-                    </p>
+                    <img src={Add} className='icon-add'/>
                 ) 
             }
         </div>

@@ -5,10 +5,10 @@ import './styles.css';
 import Add from '../../assets/images/Add.png';
 import Clear from '../../assets/images/Clear.png'
 
-export default function InputTools() {
+export default function InputTools({selectedTool, setSelectedTool}) {
     const listTools = ['HTML', 'CSS', 'JavaScript', 'React', 'VueJS', 'Sass', 'Bootstrap', 'NodeJS', 'Axios', 'Bulma', 'Uikit', 'Materialize', 'Semantic UI'];
 
-    const [selectedTool, setSelectedTool] = useState([]);
+    // const [selectedTool, setSelectedTool] = useState([]);
     const [filterTools, setFilterTools] = useState([]);
     const [isVisible, setIsVisible] = useState(false);
     const [seachTools, setSeachTools] = useState([]);

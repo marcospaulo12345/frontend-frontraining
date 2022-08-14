@@ -28,7 +28,7 @@ const Dropzone = ({onFileUploaded}) => {
             <input {...getInputProps()} accept="image/*" />
 
             { selctedFileUrl
-                ? <img src={selctedFileUrl} alt="Point thumbnail" />
+                ? <img src={selctedFileUrl} alt="Point thumbnail" className="image-chalenge"/>
                 : (
                     <img src={Add} className='icon-add' alt="Icon adicionar"/>
                 ) 

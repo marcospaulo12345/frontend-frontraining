@@ -6,10 +6,10 @@ import "./styles.css";
 import Add from '../../assets/images/Add.png';
 import Clear from '../../assets/images/Clear.png'
 
-export default function InputFonts() {
+export default function InputFonts({selectFont, setSelectFont}) {
     const [listFonts, setListFonts] = useState([]);
     const [seachFonts, setSeachFonts] = useState([]);
-    const [selectFont, setSelectFont] = useState([]);
+    // const [selectFont, setSelectFont] = useState([]);
     const [isVisible, setIsVisible] = useState(false)
 
     function handleMenu(e){

@@ -6,9 +6,9 @@ import './styles.css'
 import Add from '../../assets/images/Add.png';
 import Clear from '../../assets/images/Clear.png'
 
-export default function InputColors() {
+export default function InputColors({blockPickerColor, setBlockPickerColor}) {
 
-    const [blockPickerColor, setBlockPickerColor] = useState([]);
+    //const [blockPickerColor, setBlockPickerColor] = useState([]);
     const [inputColorVisible, setInputColorVisible] = useState(false);
 
     function handleColorPickle(e){

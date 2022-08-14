@@ -1,15 +1,19 @@
 .input-fonts{
     margin: 10px 0 0 0;
+    max-width: 100%;
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .added-fonts {
     display: flex;
+    flex-wrap: wrap;
 }
 
 .added-font {
     margin-right: 10px;
+    margin-top: 2px;
     display: flex;
     justify-content: space-between;
     padding: 0px 8px 0px 8px;

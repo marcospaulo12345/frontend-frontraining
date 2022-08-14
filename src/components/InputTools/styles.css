@@ -2,10 +2,12 @@
     display: flex;
     margin-top: 10px;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .selected-tools {
     display: flex;
+    flex-wrap: wrap;
 }
 
 .selected-tools div {
@@ -19,7 +21,7 @@
     padding: 0px 8px 0px 8px;
     background-color: #262626;
     align-items: center;
-    width: 100px;
+    width: 80px;
     height: 40px;
     border-radius: 20px;
     color: #fff;

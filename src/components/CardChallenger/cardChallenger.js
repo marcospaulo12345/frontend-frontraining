@@ -4,21 +4,28 @@ import Page01 from '../../assets/images/page_01.jpg'
 
 import "./styles.css"
 
-export default function CardChallenger() {
+export default function CardChallenger({index, challenge}) {
+    const level = ['Fácil', 'Médio', 'Difícil']
+    const colorlevel = ['#6ABECD', '#AAD742', '#F1B604']
+
+    console.log(challenge.image)
+
     return(
         <section className="card">
-            <img src={Page01} width="334" height="234" alt="Imagem Desafio"></img>
+            <img src={`http://localhost:5000/${challenge.image}`} width="334" height="234" alt="Imagem Desafio"></img>
             <div className="card-body">
-                <h1 className="title">NFT preview card component</h1>
+                <h1 className="title">{challenge.title}</h1>
 
                 <div className="span-tools">
-                    <div>
-                        <span className="html">HTML</span>
-                        <span className="css">CSS</span>
+                    <div className="tools">
+                        <span className="html">{challenge.tools}</span>
                     </div>
-                    <p>Facil</p>
+                    <div className="level" style={{backgroundColor: colorlevel[challenge.level - 1]}}>
+                        <span>{challenge.level}</span>
+                        <p>{level[challenge.level - 1]}</p>
+                    </div>
                 </div>
-                <p className="describe">But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I.</p>
+                <p className="describe">{challenge.description}</p>
             </div>
 
             

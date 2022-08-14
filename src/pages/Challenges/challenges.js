@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import api from "../../api";
 import CardChallenger from "../../components/CardChallenger/cardChallenger";
 import NavBar from "../../components/NavBar/navBar";
 import history from "../../history";
@@ -6,6 +7,19 @@ import history from "../../history";
 import "./styles.css"
 
 export default function Challenges() {
+    const [challenges, setChallenges] = useState([]);
+    
+    async function getChallenges() {
+        await api.get('/challenge').then(response => {
+            setChallenges(response.data.challenges)
+        })
+    }
+
+
+    useEffect(() => {
+        getChallenges()
+    }, []);
+
     return(
         <section className="challenge">
             <NavBar isHome={false} />
@@ -17,11 +31,11 @@ export default function Challenges() {
             </div>
 
             <div className="list-challenger">
-                <CardChallenger />
-                <CardChallenger />
-                <CardChallenger />
-                <CardChallenger />
-                <CardChallenger />
+                {challenges.map((value, index) => (
+                    <div key={index}>
+                        <CardChallenger challenge={value}/>
+                    </div>
+                ))}
             </div>
         </section>
     )

@@ -25,16 +25,7 @@ export default function CreateChallege() {
     async function handleSubmit(e) {
         e.preventDefault();
         let data = new FormData(); 
-        console.log('file', selectedFile);
-        console.log('title', title);
-        console.log('description', description);
-        console.log('color', blockPickerColor);
-        console.log('level', level);
-        console.log('font', selectFont);
-        console.log('tools', selectedTool);
-        console.log('assets', assets);
 
-        
         data.append('title', title);
         data.append('description', description);
         data.append('colors', blockPickerColor.toString());
@@ -43,7 +34,7 @@ export default function CreateChallege() {
         data.append('tools', selectedTool.toString());
         data.append('assets', assets);
         data.append('userId', user.id)
-        let imagem
+
         if(selectedFile){
             data.append('image', selectedFile);
         }

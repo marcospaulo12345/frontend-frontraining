@@ -1,7 +1,7 @@
 .details {
     width: 100%;
     height: 120%;
-    background-color: #262622;
+    background-color: #191919;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -17,9 +17,32 @@
     margin-right: 40px;
 }
 
+.body-details-right {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.body-details-right button {
+    width: 180px;
+    height: 48px;
+    margin-left: 66%;
+    border-radius: 10px;
+    border: none;
+    background-color: #1243F0;
+    color: #fff;
+    margin-top: 20px;
+}
+
 .body-details-right h1 {
     color: #fff;
     font: 700 2rem Raleway;
+}
+
+.body-details-right h2 {
+    color: #fff;
+    font: 400 1rem Roboto;
+    margin-bottom: 6px;
 }
 
 .span-tools {
@@ -36,6 +59,7 @@
 
 .colors {
     display: flex;
+    margin: 10px 0px;
 }
 
 .colors .color{
@@ -43,4 +67,59 @@
     height: 44px;
     border-radius: 50%;
     margin-right: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.colors .color:hover img {
+    display: block;
+}
+
+.colors .color img {
+    display: none;
+}
+
+.fonts {
+    width: 100%;
+    margin: 15px 0px;
+    display: flex;
+}
+
+.fonts .font p{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.fonts .font {
+    display: flex;
+    justify-content: space-around;
+    width: 24%;
+    background-color: #262626;
+    padding: 8px 12px;
+    border-radius: 8px;
+    color: #fff;
+    font: 400 1rem Roboto;
+    margin-right: 4px;
+    cursor: pointer;
+}
+
+.assets {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin: 15px 0px;
+    background-color: #262626;
+    padding: 8px 12px;
+    border-radius: 8px;
+    color: #fff;
+    cursor: pointer;
+    font: 400 1rem Roboto;
+}
+.assets p {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }

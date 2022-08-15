@@ -1,5 +1,9 @@
 import React, { useEffect, useState, useContext } from "react";
 import api from "../../api.js";
+import history from "../../history.js";
+
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import NavBar from "../../components/NavBar/navBar.js";
 import Dropzone from "../../components/DropZone/dropZone.js";
@@ -11,6 +15,15 @@ import InputTools from "../../components/InputTools/inputTools.js";
 import { Context } from "../../Context/authContext.js";
 
 export default function CreateChallege() {
+
+    const notify = (status, mensage) => {
+        if (status === 200) {
+          toast.success(mensage);
+        } else if (status===400){
+          toast.error(mensage);
+        }
+      };
+
     const [selectedFile, setSelectedFile] = useState();
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
@@ -39,7 +52,11 @@ export default function CreateChallege() {
             data.append('image', selectedFile);
         }
 
-        await api.post('challenge', data)
+        await api.post('challenge', data).then(response => {
+            console.log(response);
+            notify(200, "Desafio criado com sucesso");
+            history.push('/desafios')
+        })
     }
 
     return (

@@ -4,6 +4,9 @@ import CardChallenger from "../../components/CardChallenger/cardChallenger";
 import NavBar from "../../components/NavBar/navBar";
 import history from "../../history";
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import "./styles.css"
 
 export default function Challenges() {
@@ -23,7 +26,7 @@ export default function Challenges() {
     return(
         <section className="challenge">
             <NavBar isHome={false} />
-
+            <ToastContainer />
             <div className="line-top">
                 <h1>Desafios</h1>
                 <span id='line'></span>

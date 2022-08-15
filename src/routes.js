@@ -6,6 +6,7 @@ import Home from "./pages/Home/home";
 import Register from "./pages/Register/register";
 import Challenges from "./pages/Challenges/challenges";
 import CreateChallege from "./pages/CreateChallenge/createChallenge";
+import DetailsChallenge from "./pages/DetailsChallenge/index";
 
 export default function Routes() {
     return (
@@ -15,6 +16,7 @@ export default function Routes() {
             <Route exact path={'/cadastro'} component={Register}/>
             <Route exact path={'/desafios'} component={Challenges}/>
             <Route exact path={'/criar/desafio'} component={CreateChallege}/>
+            <Route exact path={'/desafio/detalhes'} component={DetailsChallenge}/>
         </Switch>
     )
 }

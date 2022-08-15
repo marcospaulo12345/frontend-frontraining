@@ -1,0 +1,46 @@
+.details {
+    width: 100%;
+    height: 120%;
+    background-color: #262622;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.body-details {
+    width: 90%;
+    margin-top: 40px;
+    display: flex;
+}
+
+.body-details-left {
+    margin-right: 40px;
+}
+
+.body-details-right h1 {
+    color: #fff;
+    font: 700 2rem Raleway;
+}
+
+.span-tools {
+    margin: 15px 0px 15px 0px;
+    display: flex;
+    align-items: center;
+}
+
+.detail-descrition {
+    color: #fff;
+    font: 700 0.8rem Roboto;
+    margin-bottom: 15px;
+}
+
+.colors {
+    display: flex;
+}
+
+.colors .color{
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    margin-right: 4px;
+}

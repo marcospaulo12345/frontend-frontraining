@@ -37,7 +37,7 @@ export default function DetailsChallenge(props) {
             <NavBar isHome={false}/>
             <div className="body-details">
                 <div className="body-details-left">
-                    <img src={`http://localhost:5000/${challenge.image}`} width="634" height="434" />
+                    <img src={`http://localhost:5000/${challenge.image}`}  />
                 </div>
                 <div className="body-details-right">
                     <h1>{challenge.title}</h1>
@@ -78,7 +78,7 @@ export default function DetailsChallenge(props) {
                     </div>
                     <h2>Assets</h2>
                     <div className="assets">
-                        <p>{challenge.assets}</p>
+                        <a href={challenge.assets} target="_blank">{challenge.assets}</a>
                         <img src={Out} width='18' height='18'/>
                     </div>
                     <button>Enviar Solução</button>

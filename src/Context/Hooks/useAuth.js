@@ -29,7 +29,8 @@ export default function useAuth(){
             api.defaults.headers.Authorization = `Bearer ${response.data.token}`;
 
             localStorage.setItem('user', JSON.stringify(response.data.user));
-            api.defaults.headers.Authorization = JSON.stringify(response.data.user);
+            api.defaults.headers.User = JSON.stringify(response.data.user);
+            console.log(api.defaults.headers.Authorization);
 
             setUser(response.data.user);
             setAuthenticated(true);
@@ -54,7 +55,7 @@ export default function useAuth(){
             api.defaults.headers.Authorization = `Bearer ${response.data.token}`;
 
             localStorage.setItem('user', JSON.stringify(response.data.user));
-            api.defaults.headers.Authorization = JSON.stringify(response.data.user);
+            api.defaults.headers.User = JSON.stringify(response.data.user);
 
             setUser(response.data.user);
             setAuthenticated(true);

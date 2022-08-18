@@ -6,6 +6,8 @@ import Add from '../../assets/images/Add.png'
 
 import "./styles.css";
 
+import Clear from '../../assets/images/Clear.png';
+
 const Dropzone = ({onFileUploaded}) => {
     const  [selctedFileUrl, setSelectFileUrl] = useState('');
 
@@ -24,15 +26,21 @@ const Dropzone = ({onFileUploaded}) => {
     });
 
     return (
-        <div className="dropzone" {...getRootProps()}>
-            <input {...getInputProps()} accept="image/*" />
+        <div className="body-dropzone">
+            <img src={Clear} style={{display: selctedFileUrl ? 'block' : 'none'}} className="image-clear" onClick={() => setSelectFileUrl('')}/>
+            <div className="dropzone" {...getRootProps()}>
+                <input {...getInputProps()} accept="image/*" />
 
-            { selctedFileUrl
-                ? <img src={selctedFileUrl} alt="Point thumbnail" className="image-chalenge"/>
-                : (
-                    <img src={Add} className='icon-add' alt="Icon adicionar"/>
-                ) 
-            }
+                { selctedFileUrl
+                    ? (
+                        <div>
+                            <img src={selctedFileUrl} alt="Point thumbnail" className="image-chalenge"/>
+                        </div>
+                    ) : (
+                        <img src={Add} className='icon-add' alt="Icon adicionar"/>
+                    ) 
+                }
+            </div>
         </div>
     );
 }

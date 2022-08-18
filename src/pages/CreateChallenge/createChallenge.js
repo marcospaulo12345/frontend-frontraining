@@ -141,6 +141,14 @@ export default function CreateChallege() {
                 console.log(response);
                 notify(200, "Desafio criado com sucesso");
                 history.push('/desafios')
+            }).catch(response => {
+                console.log(response.response.data)
+                let updateValue = {'serverErro': 'Escolhe uma imagem do desafio!'}
+                setMensage(mensage => ({
+                    ...mensage,
+                    ...response.response.data
+                }));
+                error = true
             })
         }
 
@@ -223,6 +231,7 @@ export default function CreateChallege() {
                         onChange={(e) => setAssets(e.target.value)}
                     />
                     {mensage.assets && <span className="error-mensage">{mensage.assets}</span>}
+                    {mensage.message && <span className="error-mensage">{mensage.message}</span>}
                     
                     <button className="btn-submit">Enviar</button>
                 </div>

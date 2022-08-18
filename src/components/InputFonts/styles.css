@@ -79,4 +79,9 @@ scroll-container {
     background-color: #262626;
     border: none;
     cursor: pointer;
+    transition: background-color 0.1s;
+}
+
+.btn-menu button:hover {
+    background-color: #474747;
 }

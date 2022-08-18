@@ -46,6 +46,11 @@
     background-color: #262626;
     border: none;
     cursor: pointer;
+    transition: background-color 0.1s;
+}
+
+.btn-tools button:hover {
+    background-color: #474747;
 }
 
 .dropmenu-tools {

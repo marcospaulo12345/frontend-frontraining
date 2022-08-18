@@ -2,10 +2,15 @@
     width: 334px;
     height: 534px;
     background: #2C2C2C;
-    border-radius: 20px;
+    border-radius: 10px;
     box-shadow:  5px 5px 7px #151515,
              -5px -5px 7px #1d1d1d;
     cursor: pointer;
+    transition: background-color 0.1s;
+}
+
+.card:hover {
+    background-color: #464646;
 }
 
 .card-body {
@@ -13,7 +18,7 @@
 }
 
 .card img {
-    border-radius: 20px 20px 0 0px;
+    border-radius: 10px 10px 0 0px;
 }
 
 .title {

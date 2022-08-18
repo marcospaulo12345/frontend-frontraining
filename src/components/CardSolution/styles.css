@@ -1,0 +1,88 @@
+.card-solution {
+    width: 334px;
+    height: 434px;
+    background-color: #2C2C2C;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.1s;
+}
+
+.card-solution:hover {
+    background-color: #464646;
+}
+
+.card-solution img {
+    border-radius: 10px 10px 0 0;
+}
+
+.solution-body {
+    padding: 10px;
+}
+
+.solution-body .title-solution {
+    color: #fff;
+    font: 700 1.3rem Roboto;
+    margin: 14px 0 10px 0;
+}
+
+.tools-solution {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.tools-solution p {
+    margin-right: 4px;
+    font: 700 1rem Roboto;
+    color: #3E54A3;
+}
+
+.user-solution {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.user-solution .info-user {
+    display: flex;
+    align-items: center;
+}
+
+.user-solution .user-solution-icon {
+    width: 53px;
+    height: 53px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #D9D9D9;
+    border-radius: 50%;
+    margin-right: 4px;
+    margin-top: 4px;
+    font: 700 1.4rem Roboto;
+}
+
+.user-solution .user-solution-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.user-solution .user-solution-info h2 {
+    color: #fff;
+    font: 700 1.1rem Roboto
+}
+
+.user-solution .user-solution-info h3 {
+    color: #fff;
+    font: 700 0.8rem Roboto;
+}
+
+.user-solution .user-solution-info h4 {
+    color: #8E8E8E;
+    font: 700 0.6rem Roboto;
+    font-style: italic;
+    margin-top: 2px;
+}
+
+.user-solution .user-points {
+    color: #fff;
+    font: 700 1rem Roboto;
+}

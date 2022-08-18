@@ -25,8 +25,6 @@ export default function DetailsChallenge(props) {
 
     const challenge = props.location.state
 
-    console.log(challenge.description.replaceAll("\n", "<br/>"))
-
     function copy(value) {
         navigator.clipboard.writeText(value);
         notify(200, value)

@@ -23,7 +23,7 @@ export default function NavBar({isHome}){
                         <Link to="/desafios">Desafios</Link>
                     </li>
                     <li className="nav-item">
-                        <Link to="/">Soluções</Link>
+                        <Link to="/solucoes">Soluções</Link>
                     </li>
                     <li className="nav-item" id="name-user">
                         {authenticated ? (

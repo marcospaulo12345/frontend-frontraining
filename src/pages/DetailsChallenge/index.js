@@ -1,5 +1,6 @@
 import React from "react";
 import NavBar from '../../components/NavBar/navBar';
+import history from "../../history";
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -79,7 +80,9 @@ export default function DetailsChallenge(props) {
                         <a href={challenge.assets} target="_blank">{challenge.assets}</a>
                         <img src={Out} width='18' height='18'/>
                     </div>
-                    <button>Enviar Solução</button>
+                    <button onClick={() => {
+                        return history.push('/cirar/solucao');
+                    }}>Enviar Solução</button>
                 </div>
             </div>
         </section>

@@ -8,6 +8,7 @@ import Challenges from "./pages/Challenges/challenges";
 import CreateChallege from "./pages/CreateChallenge/createChallenge";
 import DetailsChallenge from "./pages/DetailsChallenge/index";
 import Solutions from './pages/Solutions/solutions';
+import CreateSolution from "./pages/CreateSolution/createSolution";
 
 export default function Routes() {
     return (
@@ -19,6 +20,7 @@ export default function Routes() {
             <Route exact path={'/criar/desafio'} component={CreateChallege}/>
             <Route exact path={'/desafio/detalhes'} component={DetailsChallenge}/>
             <Route exact path={'/solucoes'} component={Solutions}/>
+            <Route exact path={'/criar/solucao'} component={CreateSolution}/>
         </Switch>
     )
 }

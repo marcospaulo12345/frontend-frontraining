@@ -4,6 +4,8 @@
     background-color: #2C2C2C;
     border-radius: 10px;
     cursor: pointer;
+    box-shadow:  5px 5px 7px #151515,
+             -5px -5px 7px #1d1d1d;
     transition: background-color 0.1s;
 }
 

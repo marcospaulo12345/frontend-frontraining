@@ -34,4 +34,31 @@
     border: 1px solid var(--color-line-in-white);
     border-radius: 0.4rem;
     margin-top: 10px;
+    margin-bottom: 8px;
+}
+
+.create-solution .form-right h1 {
+    font: 700 1rem Roboto;
+    margin-bottom: 8px;
+}
+ 
+.create-solution .form-right label {
+    font: 400 1rem Roboto;
+}
+
+.create-solution .form-right p {
+    font: 400 0.8rem Roboto;
+}
+
+.create-solution .form-right button {
+    width: 30%;
+    height: 54px;
+    border-radius: 10px;
+    border: none;
+    background: #1243F0;
+    color: #fff;
+    font: 400 1rem Roboto;
+    margin-top: 30px;
+    margin-left: 70%;
+    cursor: pointer;
 }

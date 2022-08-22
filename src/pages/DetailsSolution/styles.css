@@ -1,0 +1,80 @@
+.details-solution {
+    background-color: #191919;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.body-details-solution {
+    margin-top: 50px;
+    width: 90%;
+}
+
+.div-challenge {
+    display: flex;
+    color: #fff;
+}
+
+.div-challenge-info {
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.div-challenge-info p {
+    color: #8C8C8C;
+}
+
+.div-challenge-info .tools-level {
+    display: flex;
+}
+
+.div-challenge-info .tools-level .tools {
+    display: flex;
+}
+
+.div-challenge-info .tools-level .level {
+    display: flex;
+}
+
+.div-challenge-info .tools-level h2 {
+    font: 400 1rem Roboto;
+}
+
+.div-solution {
+    display: flex;
+    margin-top: 50px;
+}
+
+.div-solution-info {
+    margin-left: 20px;
+}
+
+.div-solution-info h1 {
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.solution-buttons {
+    margin-top: 20px;
+}
+
+.solution-buttons button {
+    width: 30%;
+    height: 42px;
+    color: #fff;
+    border-radius: 14px;
+    cursor: pointer;
+    border: none;
+}
+
+.solution-buttons .btn-site {
+    background-color: #ED2C49;
+}
+
+.solution-buttons .btn-repo {
+    background-color: #1243F0;
+    margin-left: 20px;
+}

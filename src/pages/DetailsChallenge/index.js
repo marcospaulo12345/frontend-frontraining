@@ -81,7 +81,7 @@ export default function DetailsChallenge(props) {
                         <img src={Out} width='18' height='18'/>
                     </div>
                     <button onClick={() => {
-                        return history.push('/cirar/solucao');
+                        return history.push('/criar/solucao');
                     }}>Enviar Solução</button>
                 </div>
             </div>

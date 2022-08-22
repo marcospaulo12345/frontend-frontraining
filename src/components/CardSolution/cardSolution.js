@@ -1,12 +1,15 @@
 import React from "react";
 
-import landingpage from '../../assets/images/page_01.jpg'
+import landingpage from '../../assets/images/page_01.jpg';
+import history from "../../history";
 
 import './styles.css';
 
 export default function CardSolution() {
     return (
-        <div className="card-solution">
+        <div className="card-solution" onClick={() => {
+                return history.push('/detalhes/solucao')
+            }}>
             <img src={landingpage} width='334' height='224'/>
             <div className="solution-body">
                 <h1 className="title-solution">Landing Page remote work</h1>

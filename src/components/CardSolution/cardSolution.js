@@ -6,18 +6,24 @@ import history from "../../history";
 import './styles.css';
 
 export default function CardSolution({solution}) {
-    console.log(solution)
+    
+    function handleDetailSolution() {
+        history.push({
+            pathname: "/detalhes/solucao",
+            state: solution
+        })
+    }
+
     return (
-        <div className="card-solution" onClick={() => {
-                return history.push('/detalhes/solucao')
-            }}>
+        <div className="card-solution" onClick={() => handleDetailSolution()}>
             <img src={`http://localhost:5000/${solution.image}`} width='334' height='224'/>
             <div className="solution-body">
                 <h1 className="title-solution">{solution.title}</h1>
 
                 <div className="tools-solution">
-                    <p>HTML</p>
-                    <p>CSS</p>
+                    {solution.challenge.tools.split(',').map((value, index) =>(
+                        <p key={index}>{value}</p>
+                    ))}
                 </div>
 
                 <div className="user-solution">

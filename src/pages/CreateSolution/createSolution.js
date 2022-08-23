@@ -1,5 +1,8 @@
-import React, {useContext, useState} from "react";
+import React, {useContext, useState, useEffect} from "react";
 import api from "../../api";
+import history from "../../history";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import Dropzone from "../../components/DropZone/dropZone";
 import NavBar from '../../components/NavBar/navBar';
@@ -15,12 +18,83 @@ export default function CreateSolution(props) {
     const [linkRepo, setLinkRepo] = useState('');
     const [linkSite, setLinkSite] = useState('');
 
-    const {user} = useContext(Context)
+    const [mensage, setMensage] = useState({});
 
+    const {user} = useContext(Context);
+
+    const notify = (status, mensage) => {
+        if (status === 200) {
+          toast.success(mensage);
+        } else if (status===400){
+          toast.error(mensage);
+        }
+      };
+
+    useEffect(() => {
+        setMensage({});
+    }, [title, linkRepo, linkSite, selectedFile])
+    
+    
     async function handleSubmit(e) {
         e.preventDefault();
         
         let data = new FormData(); 
+        let error = false
+
+        if (title===''){
+            let updateValue = {'title': 'Este campoa é obrigatório!'}
+            setMensage(mensage => ({
+                ...mensage,
+                ...updateValue
+            }));
+            error = true
+        }
+        if (linkRepo === ''){
+            let updateValue = {'repository': 'Informe um link com o repositório da solução!'}
+            setMensage(mensage => ({
+                ...mensage,
+                ...updateValue
+            }));
+            error = true
+        } else if (linkRepo) {
+            try {
+                let url = new URL(linkRepo)
+            } catch(err) {
+                let updateValue = {'repository': 'URL Inválida!'}
+                setMensage(mensage => ({
+                    ...mensage,
+                    ...updateValue
+                }));
+                error = true
+            }
+        }
+        if (linkSite === ''){
+            let updateValue = {'site': 'Informe um link com o site da solução!'}
+            setMensage(mensage => ({
+                ...mensage,
+                ...updateValue
+            }));
+            error = true
+        } else if (linkSite) {
+            try {
+                let url = new URL(linkSite)
+            } catch(err) {
+                let updateValue = {'site': 'URL Inválida!'}
+                setMensage(mensage => ({
+                    ...mensage,
+                    ...updateValue
+                }));
+                error = true
+            }
+        }
+        if (!selectedFile){
+            let updateValue = {'image': 'Escolhe uma imagem para a solução!'}
+            setMensage(mensage => ({
+                ...mensage,
+                ...updateValue
+            }));
+            error = true
+        }
 
         data.append('challengeId', challenge.id_challenge)
         data.append('userId', user.id)
@@ -32,11 +106,15 @@ export default function CreateSolution(props) {
             data.append('image', selectedFile);
         }
 
-        await api.post('solution', data).then(response => {
-            console.log(response);
-        }).catch(response => {
-            console.log(response)
-        })
+        if(error === false){
+            await api.post('solution', data).then(response => {
+                console.log(response);
+                notify(200, "Solução criado com sucesso");
+                history.push('/solucoes')
+            }).catch(response => {
+                console.log(response)
+            })
+        }
     }
 
     return (
@@ -45,6 +123,7 @@ export default function CreateSolution(props) {
             <form onSubmit={(e) => handleSubmit(e)}>
                 <div className="form-left">
                     <Dropzone onFileUploaded={setSelectedFile} />
+                    {mensage.image && <span className="error-mensage">{mensage.image}</span>}
                 </div>
                 <div className="form-right">
                     <div>
@@ -56,6 +135,8 @@ export default function CreateSolution(props) {
                             value={title}
                             onChange={(e) => setTitle(e.target.value)}
                         />
+                        {mensage.title && <span className="error-mensage">{mensage.title}</span>}
+
                     </div>
                     <div>
                         <label>Link do Repositório</label>
@@ -65,6 +146,7 @@ export default function CreateSolution(props) {
                             value={linkRepo}
                             onChange={(e) => setLinkRepo(e.target.value)}
                         />
+                        {mensage.repository && <span className="error-mensage">{mensage.repository}</span>}
                     </div>
                     <div>
                         <label>Link do Site</label>
@@ -74,6 +156,7 @@ export default function CreateSolution(props) {
                             value={linkSite}
                             onChange={(e) => setLinkSite(e.target.value)}
                         />
+                        {mensage.site && <span className="error-mensage">{mensage.site}</span>}
                     </div>
                     <div>
                         <h1>Observação</h1>

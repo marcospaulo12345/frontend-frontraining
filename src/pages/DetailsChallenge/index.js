@@ -68,7 +68,7 @@ export default function DetailsChallenge(props) {
                     <h2>Cores</h2>
                     <div className="colors">
                         {challenge.colors.split(',').map((value, index) => (
-                            <div className="color" style={{backgroundColor: value}} onClick={() => copy(value)}>
+                            <div className="color" key={index} style={{backgroundColor: value}} onClick={() => copy(value)}>
                                 <img src={Copy} width='20' height='20'/>
                             </div>
                         ))}
@@ -76,7 +76,7 @@ export default function DetailsChallenge(props) {
                     <h2>Fontes</h2>
                     <div className="fonts">
                         {challenge.fonts.split(',').map((value, index) => (
-                            <div className="font" onClick={() => copy(value)}>
+                            <div className="font" key={index} onClick={() => copy(value)}>
                                 <p>{value}</p>
                                 <img src={Copy} width='20' height='20'/>
                             </div>

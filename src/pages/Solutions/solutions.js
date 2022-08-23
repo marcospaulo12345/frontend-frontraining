@@ -17,7 +17,7 @@ export default function Solutions() {
 
     useEffect(() => {
         getSolution();
-    })
+    }, [])
 
     return (
         <section className="solutions-body">

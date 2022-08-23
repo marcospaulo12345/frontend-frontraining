@@ -6,6 +6,7 @@ import LandingPage from '../../assets/images/page_01.jpg'
 import './styles.css';
 
 export default function DetailsSolution() {
+
     return (
         <section className="details-solution">
             <NavBar isHome={false} />

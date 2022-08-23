@@ -5,14 +5,15 @@ import history from "../../history";
 
 import './styles.css';
 
-export default function CardSolution() {
+export default function CardSolution({solution}) {
+    console.log(solution)
     return (
         <div className="card-solution" onClick={() => {
                 return history.push('/detalhes/solucao')
             }}>
-            <img src={landingpage} width='334' height='224'/>
+            <img src={`http://localhost:5000/${solution.image}`} width='334' height='224'/>
             <div className="solution-body">
-                <h1 className="title-solution">Landing Page remote work</h1>
+                <h1 className="title-solution">{solution.title}</h1>
 
                 <div className="tools-solution">
                     <p>HTML</p>
@@ -23,13 +24,13 @@ export default function CardSolution() {
                     <div className="info-user">
                         <div className="user-solution-icon">M</div>
                         <div className="user-solution-info">
-                            <h2>Marcos Paulo</h2>
-                            <h3>marcos@gmail.com</h3>
+                            <h2>{solution.user.username}</h2>
+                            <h3>{solution.user.email}</h3>
                             <h4>Enviado a 1 hora atrás</h4>
                         </div>
                     </div>
                     <div className="user-points">
-                        110 Pontos
+                        {solution.user.score}
                     </div>
                 </div>
             </div>

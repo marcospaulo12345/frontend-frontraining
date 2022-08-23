@@ -46,6 +46,7 @@
 .div-solution {
     display: flex;
     margin-top: 50px;
+    margin-bottom: 50px;
 }
 
 .div-solution-info {

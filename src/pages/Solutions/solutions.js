@@ -1,11 +1,24 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import NavBar from "../../components/NavBar/navBar";
+import api from "../../api";
 
 import CardSolution from "../../components/CardSolution/cardSolution";
 
 import './styles.css'
 
 export default function Solutions() {
+    const [solutions, setSolutions] = useState([]);
+
+    async function getSolution() {
+        await api.get('/solution').then(response => {
+            setSolutions(response.data.solutions)
+        })
+    }
+
+    useEffect(() => {
+        getSolution();
+    })
+
     return (
         <section className="solutions-body">
             <NavBar isHome={false} />
@@ -14,10 +27,11 @@ export default function Solutions() {
                 <span></span>
             </div>
             <div className="list-solutions">
-                <CardSolution />
-                <CardSolution />
-                <CardSolution />
-                <CardSolution />
+                {solutions.map((value, index) => (
+                    <div key={index}>
+                        <CardSolution solution={value} />
+                    </div>
+                ))}
             </div>
         </section>
     )

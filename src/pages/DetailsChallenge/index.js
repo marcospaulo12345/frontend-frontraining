@@ -31,6 +31,13 @@ export default function DetailsChallenge(props) {
         notify(200, value)
     }
 
+    function handleCreateSolution() {
+        history.push({
+            pathname: '/criar/solucao',
+            state: challenge
+        })
+    }
+
     return (
         <section className="details">
             <NavBar isHome={false}/>
@@ -80,9 +87,7 @@ export default function DetailsChallenge(props) {
                         <a href={challenge.assets} target="_blank">{challenge.assets}</a>
                         <img src={Out} width='18' height='18'/>
                     </div>
-                    <button onClick={() => {
-                        return history.push('/criar/solucao');
-                    }}>Enviar Solução</button>
+                    <button onClick={() => handleCreateSolution()}>Enviar Solução</button>
                 </div>
             </div>
         </section>

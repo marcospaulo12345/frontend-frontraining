@@ -11,6 +11,34 @@ export default function DetailsSolution(props) {
 
     const solution = props.location.state
 
+    console.log(solution)
+
+    function difHours(dateChallenge) {
+        const hoje = new Date();
+        const updatedAt = new Date(dateChallenge)
+        const dif = new Date(hoje - updatedAt);
+        return dif.getUTCHours()
+    }
+
+    function returnColorTools(index) {
+        const listTools = {
+            HTML: '#6ABFDB',
+            CSS: '#3E54A3', 
+            JavaScript: '#CF6390', 
+            React: '#5ED3F3', 
+            VueJS: '#3FB27F', 
+            Sass: '#C66394', 
+            Bootstrap: '#533B78', 
+            NodeJS: '#81B847', 
+            Axios: '#671DDF', 
+            Bulma: '#00D1B2', 
+            Uikit: '#2A9ECE', 
+            Materialize: '#EB7077', 
+            Semantic_UI: '#35BDB2'
+        };
+        return listTools[index];
+    }
+
     return (
         <section className="details-solution">
             <NavBar isHome={false} />
@@ -23,7 +51,7 @@ export default function DetailsSolution(props) {
                         <div className="tools-level">
                             <div className="tools">
                                 {solution.challenge.tools.split(',').map((value, index) => (
-                                    <h2 key={index}>{value}</h2>
+                                    <h2 key={index} style={{color: returnColorTools(value)}}>{value}</h2>
                                 ))}
                             </div>
                             <div className="level" style={{backgroundColor: colorlevel[solution.challenge.level - 1]}}>
@@ -44,7 +72,7 @@ export default function DetailsSolution(props) {
                                 <div className="user-solution-info">
                                     <h2>{solution.user.username}</h2>
                                     <h3>{solution.user.email}</h3>
-                                    <h4>Enviado a 1 hora atrás</h4>
+                                    <h4>Enviado a {difHours(solution.updatedAt)} hora atrás</h4>
                                 </div>
                             </div>
                             <div className="user-points">

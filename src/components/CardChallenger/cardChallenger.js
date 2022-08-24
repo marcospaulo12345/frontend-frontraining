@@ -17,6 +17,25 @@ export default function CardChallenger({index, challenge}) {
         })
     }
 
+    function returnColorTools(index) {
+        const listTools = {
+            HTML: '#6ABFDB',
+            CSS: '#3E54A3', 
+            JavaScript: '#CF6390', 
+            React: '#5ED3F3', 
+            VueJS: '#3FB27F', 
+            Sass: '#C66394', 
+            Bootstrap: '#533B78', 
+            NodeJS: '#81B847', 
+            Axios: '#671DDF', 
+            Bulma: '#00D1B2', 
+            Uikit: '#2A9ECE', 
+            Materialize: '#EB7077', 
+            Semantic_UI: '#35BDB2'
+        };
+        return listTools[index];
+    }
+
     return(
         <section className="card" onClick={handleDetails}>
             <img src={`http://localhost:5000/${challenge.image}`} width="334" height="234" alt="Imagem Desafio"></img>
@@ -26,7 +45,7 @@ export default function CardChallenger({index, challenge}) {
                 <div className="span-tools">
                     <div className="tools">
                         {challenge.tools.split(',').map((value, index) => (
-                            <span className="html" key={index}>{value}</span>
+                            <span className="html" key={index} style={{color: returnColorTools(value)}}>{value}</span>
                         ))}
                     </div>
                     <div className="level" style={{backgroundColor: colorlevel[challenge.level - 1]}}>

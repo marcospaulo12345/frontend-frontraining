@@ -10,6 +10,7 @@ import DetailsChallenge from "./pages/DetailsChallenge/index";
 import Solutions from './pages/Solutions/solutions';
 import CreateSolution from "./pages/CreateSolution/createSolution";
 import DetailsSolution from "./pages/DetailsSolution";
+import Profile from "./pages/Profile";
 
 export default function Routes() {
     return (
@@ -23,6 +24,7 @@ export default function Routes() {
             <Route exact path={'/detalhes/solucao'} component={DetailsSolution} />
             <Route exact path={'/solucoes'} component={Solutions}/>
             <Route exact path={'/criar/solucao'} component={CreateSolution}/>
+            <Route exact path={'/perfil'} component={Profile}/>
         </Switch>
     )
 }

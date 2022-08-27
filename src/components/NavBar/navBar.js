@@ -6,7 +6,7 @@ import { Context } from "../../Context/authContext";
 
 import './styles.css'
 
-export default function NavBar({isHome}){
+export default function NavBar({isHome = false}){
     const {authenticated, handleLogout, user} = useContext(Context);
 
     return (
@@ -35,7 +35,7 @@ export default function NavBar({isHome}){
                                     </div>
                                 </Link>
                                 <div class="dropup-content">
-                                    <Link to="#">Perfil</Link>
+                                    <Link to="/perfil">Perfil</Link>
                                     <Link to="#" onClick={() => handleLogout()}>Sair</Link>
                                 </div>
                             </div>

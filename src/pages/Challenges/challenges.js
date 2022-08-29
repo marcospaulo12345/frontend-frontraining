@@ -24,7 +24,7 @@ export default function Challenges() {
 
     return(
         <section className="challenge">
-            <NavBar isHome={false} />
+            <NavBar isChallenge={true}/>
             <ToastContainer />
             <div className="line-top">
                 <h1>Desafios</h1>

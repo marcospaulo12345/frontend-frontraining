@@ -2,11 +2,13 @@ import React, { useContext } from "react";
 import {Link} from 'react-router-dom';
 
 import Logo from '../../assets/images/logo.png';
+import Search from '../../assets/images/Search.png'
+
 import { Context } from "../../Context/authContext";
 
 import './styles.css'
 
-export default function NavBar({isHome = false}){
+export default function NavBar({isHome = false, isChallenge=false}){
     const {authenticated, handleLogout, user} = useContext(Context);
 
     return (
@@ -25,6 +27,16 @@ export default function NavBar({isHome = false}){
                     <li className="nav-item">
                         <Link to="/solucoes">Soluções</Link>
                     </li>
+                    {isChallenge ? (
+                        <li className="nav-item">
+                            <img src={Search} className="icon-input" width="21" height='21'/>
+                            <input 
+                                type="search" 
+                                placeholder="Buscar desafio..."
+                                className="input-search"
+                            />
+                        </li>
+                    ): null}
                     <li className="nav-item" id="name-user">
                         {authenticated ? (
                             <div className="btn-user">

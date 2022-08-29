@@ -63,6 +63,37 @@
     color: rgb(192, 192, 192);
 }
 
+.nav-item input {
+    color: #2C2C2C;
+    font: 700 1rem Raleway;
+    width: 100%;
+    height: 33px;
+    border-radius: 50px;
+    border: none;
+    padding-left: 25px;
+    padding-right: 4px;
+}
+
+.icon-input {
+    position: absolute;
+    margin-top: 6px;
+    margin-left: 6px;
+}
+
+.nav-item input::placeholder {
+    color: #2C2C2C;
+    font: 700 1rem Raleway;
+    opacity: 1;
+}
+
+.nav-item input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 300px #262626 inset;
+}
+
+.nav-item input:-webkit-autofill {
+    -webkit-text-fill-color: red !important;
+}
+
 .icon-user {
     display: flex;
     justify-content: center;

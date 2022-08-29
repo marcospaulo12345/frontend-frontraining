@@ -3,6 +3,8 @@ import React from "react";
 import NavBar from '../../components/NavBar/navBar';
 import LandingPage from '../../assets/images/page_01.jpg'
 
+import { difHours } from "../../utils/tools";
+
 import './styles.css';
 
 export default function DetailsSolution(props) {
@@ -13,12 +15,12 @@ export default function DetailsSolution(props) {
 
     console.log(solution)
 
-    function difHours(dateChallenge) {
-        const hoje = new Date();
-        const updatedAt = new Date(dateChallenge)
-        const dif = new Date(hoje - updatedAt);
-        return dif.getUTCHours()
-    }
+    // function difHours(dateChallenge) {
+    //     const hoje = new Date();
+    //     const updatedAt = new Date(dateChallenge)
+    //     const dif = new Date(hoje - updatedAt);
+    //     return dif.getUTCHours()
+    // }
 
     function returnColorTools(index) {
         const listTools = {

@@ -2,42 +2,19 @@ import React from "react";
 
 import landingpage from '../../assets/images/page_01.jpg';
 import history from "../../history";
+import { difHours } from "../../utils/tools";
+
+import { returnColorTools } from "../../utils/tools";
 
 import './styles.css';
 
 export default function CardSolution({solution}) {
-    
-    function returnColorTools(index) {
-        const listTools = {
-            HTML: '#6ABFDB',
-            CSS: '#3E54A3', 
-            JavaScript: '#CF6390', 
-            React: '#5ED3F3', 
-            VueJS: '#3FB27F', 
-            Sass: '#C66394', 
-            Bootstrap: '#533B78', 
-            NodeJS: '#81B847', 
-            Axios: '#671DDF', 
-            Bulma: '#00D1B2', 
-            Uikit: '#2A9ECE', 
-            Materialize: '#EB7077', 
-            Semantic_UI: '#35BDB2'
-        };
-        return listTools[index];
-    }
 
     function handleDetailSolution() {
         history.push({
             pathname: "/detalhes/solucao",
             state: solution
         })
-    }
-
-    function difHours(dateChallenge) {
-        const hoje = new Date();
-        const updatedAt = new Date(dateChallenge)
-        const dif = new Date(hoje - updatedAt);
-        return dif.getUTCHours()
     }
 
     return (

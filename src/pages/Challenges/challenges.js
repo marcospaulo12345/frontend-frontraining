@@ -11,6 +11,7 @@ import "./styles.css"
 
 export default function Challenges() {
     const [challenges, setChallenges] = useState([]);
+    const [search, setSearch] = useState('');
     
     async function getChallenges() {
         await api.get('/challenge').then(response => {
@@ -22,9 +23,21 @@ export default function Challenges() {
         getChallenges()
     }, []);
 
+    useEffect(() => {
+        if(search){
+            api.post('/challenge/search', {
+                search: search,
+            }).then(response => {
+                setChallenges(response.data.challenges)
+            })
+        } else {
+            getChallenges()
+        }
+    }, [search])    
+
     return(
         <section className="challenge">
-            <NavBar isChallenge={true}/>
+            <NavBar isChallenge={true} setSearch={setSearch}/>
             <ToastContainer />
             <div className="line-top">
                 <h1>Desafios</h1>

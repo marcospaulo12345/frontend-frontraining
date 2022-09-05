@@ -7,6 +7,7 @@
     box-shadow:  5px 5px 7px #151515,
              -5px -5px 7px #1d1d1d;
     transition: background-color 0.1s;
+    position: relative;
 }
 
 .card-solution:hover {
@@ -87,4 +88,57 @@
 .user-solution .user-points {
     color: #fff;
     font: 700 1rem Roboto;
+}
+
+.card-points {
+    background-color: #2c2c2c75;
+    width: 20px;
+    height: 25px;
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 0px 10px 0px 0px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 999;
+    cursor: pointer;
+}
+
+.card-points div{
+    width: 4px;
+    height: 4px;
+    background-color: #fff;
+    border-radius: 50%;
+}
+
+.teste:hover .card-points {
+    display: flex;
+}
+
+.menu-option {
+    position: absolute;
+    z-index: 999;
+    right: 0;
+    top: 30px;
+    flex-direction: column;
+    background-color: #2c2c2ce0;
+    width: 100px;
+    height: 60px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.menu-option button {
+    border: none;
+    background-color: #2c2c2ce0;
+    color: #fff;
+    padding: 6px 10px 6px 10px;
+    cursor: pointer;
+    font: 400 1rem Roboto;
+}
+
+.menu-option button:hover {
+    background-color: #3d3d3de0;
 }

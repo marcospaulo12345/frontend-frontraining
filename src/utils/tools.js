@@ -3,7 +3,6 @@ export function difHours(dateChallenge) {
     const updatedAt = new Date(dateChallenge)
     const dif = new Date(hoje - updatedAt);
     const res = ''.concat(dif.getDay() + ' dias e ', dif.getUTCHours().toString())
-    console.log(res)
     return res
 }
 

@@ -14,16 +14,21 @@ export default function Profile({userId=true}) {
     const {user} = useContext(Context)
 
     async function getChallenges() {
-        if(userId && user.id){
+        if(user?.id){
             const challenges = await api.get(`challenge/user/${user.id}`)
             setChallenges(challenges.data.challenges)
         }
     }
 
+    function handleMenu(index) {
+
+        console.log(`menu-${index}`)
+        document.getElementById(`menu-${index}`).style.display = 'flex'
+    }
+
     async function getSolutions() {
-        if(userId && user.id){
+        if(user?.id){
             const solutions = await api.get(`solution/user/${user.id}`)
-            console.log(solutions.data.solutions)
             setSolutions(solutions.data.solutions)
         }
     }
@@ -31,7 +36,7 @@ export default function Profile({userId=true}) {
     useEffect(() => {
         getChallenges();
         getSolutions();
-    }, []);
+    }, [user]);
 
     return (
         <section className="profile">
@@ -54,8 +59,8 @@ export default function Profile({userId=true}) {
             <h3>Desafios Criados</h3>
             <div className="profile-challenges">
                 {challenges.map((value, index) => (
-                    <div key={index}>
-                        <CardChallenger challenge={value}/>
+                    <div key={index} className="profile-challenge-item">
+                        <CardChallenger challenge={value} isUpgradable={true}/>
                     </div>
                 ))}
             </div>
@@ -63,7 +68,7 @@ export default function Profile({userId=true}) {
             <div className="profile-solutions">
                 {solutions.map((value, index) => (
                     <div key={index}>
-                        <CardSolution solution={value}/>
+                        <CardSolution solution={value} isUpgradable={true}/>
                     </div>
                 ))}
             </div>

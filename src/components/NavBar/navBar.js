@@ -8,8 +8,14 @@ import { Context } from "../../Context/authContext";
 
 import './styles.css'
 
-export default function NavBar({isHome = false, isChallenge=false}){
+export default function NavBar({isHome = false, isChallenge=false, setSearch=false}){
     const {authenticated, handleLogout, user} = useContext(Context);
+
+    const handlekeyDown = (event) => {
+        if(event.key === 'Enter') {
+            setSearch(event.target.value);
+        }
+    }
 
     return (
         <div className="navbar" style={{'background-color': isHome === true ? null : '#2C2C2C'}}>
@@ -34,6 +40,7 @@ export default function NavBar({isHome = false, isChallenge=false}){
                                 type="search" 
                                 placeholder="Buscar desafio..."
                                 className="input-search"
+                                onKeyDown={handlekeyDown}
                             />
                         </li>
                     ): null}

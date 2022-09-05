@@ -1,6 +1,5 @@
 .profile {
     width: 100%;
-    height: 100%;
     background-color: #191919;
     display: flex;
     flex-direction: column;
@@ -62,4 +61,8 @@
 .profile h3 {
     color: #fff;
     font: 700 1.2rem Raleway;
+}
+
+.profile-challenges {
+    display: flex;
 }

@@ -10,6 +10,7 @@ import './styles.css';
 
 export default function CardSolution({solution}) {
 
+    console.log(solution)
     function handleDetailSolution() {
         history.push({
             pathname: "/detalhes/solucao",

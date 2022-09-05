@@ -1,9 +1,38 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import NavBar from "../../components/NavBar/navBar";
+import api from "../../api";
 
 import './styles.css'
+import { Context } from "../../Context/authContext";
+import CardChallenger from "../../components/CardChallenger/cardChallenger";
+import CardSolution from "../../components/CardSolution/cardSolution";
 
-export default function Profile() {
+export default function Profile({userId=true}) {
+    const [challenges, setChallenges] = useState([]);
+    const [solutions, setSolutions] = useState([]);
+
+    const {user} = useContext(Context)
+
+    async function getChallenges() {
+        if(userId && user.id){
+            const challenges = await api.get(`challenge/user/${user.id}`)
+            setChallenges(challenges.data.challenges)
+        }
+    }
+
+    async function getSolutions() {
+        if(userId && user.id){
+            const solutions = await api.get(`solution/user/${user.id}`)
+            console.log(solutions.data.solutions)
+            setSolutions(solutions.data.solutions)
+        }
+    }
+
+    useEffect(() => {
+        getChallenges();
+        getSolutions();
+    }, []);
+
     return (
         <section className="profile">
             <NavBar />
@@ -24,11 +53,19 @@ export default function Profile() {
             </div>
             <h3>Desafios Criados</h3>
             <div className="profile-challenges">
-
+                {challenges.map((value, index) => (
+                    <div key={index}>
+                        <CardChallenger challenge={value}/>
+                    </div>
+                ))}
             </div>
             <h3>Soluções Enviadas</h3>
             <div className="profile-solutions">
-                
+                {solutions.map((value, index) => (
+                    <div key={index}>
+                        <CardSolution solution={value}/>
+                    </div>
+                ))}
             </div>
         </section>
     );

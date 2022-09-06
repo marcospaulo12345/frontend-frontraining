@@ -32,6 +32,7 @@ export default function CardChallenger({index, challenge, isUpgradable=false, se
 
     function updateChallenge(e) {
         e.preventDefault();
+        console.log('jhsdkfh')
         history.push({
             pathname: 'criar/desafio',
             state: challenge
@@ -42,6 +43,11 @@ export default function CardChallenger({index, challenge, isUpgradable=false, se
         api.delete(`challenge/${challenge.id_challenge}`).then(response => {
             console.log(response);
             notify(200, response.data.message);
+            setRefresh(true);
+            setIsVisible(false);
+        }).catch(response => {
+            console.log(response.response.data.message);
+            notify(400, response.response.data.message);
             setRefresh(true);
             setIsVisible(false);
         })
@@ -64,7 +70,7 @@ export default function CardChallenger({index, challenge, isUpgradable=false, se
                         <div></div>
                     </div>
                     <div className="menu-option" style={{display: isVisible ? 'flex':'none'}}>
-                        <button onClick={() => updateChallenge()}>Alterar</button>
+                        <button onClick={(e) => updateChallenge(e)}>Alterar</button>
                         <button onClick={(e)=>handleModal(e)}>Excluir</button>
                     </div>
                 </>

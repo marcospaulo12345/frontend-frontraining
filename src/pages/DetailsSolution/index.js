@@ -1,4 +1,5 @@
 import React from "react";
+import history from "../../history";
 
 import NavBar from '../../components/NavBar/navBar';
 import LandingPage from '../../assets/images/page_01.jpg'
@@ -21,6 +22,13 @@ export default function DetailsSolution(props) {
     //     const dif = new Date(hoje - updatedAt);
     //     return dif.getUTCHours()
     // }
+
+    function handleProfile() {
+        history.push({
+            pathname: '../perfil/',
+            state: {user: solution.user, userId: solution.userId}
+        });
+    }
 
     function returnColorTools(index) {
         const listTools = {
@@ -69,8 +77,8 @@ export default function DetailsSolution(props) {
                     <div className="div-solution-info">
                         <h1>{solution.title} </h1>
                         <div className="user-solution">
-                            <div className="info-user">
-                                <div className="user-solution-icon">M</div>
+                            <div className="info-user" onClick={() => handleProfile()}>
+                                <div className="user-solution-icon">{solution.user.username[0].toUpperCase()}</div>
                                 <div className="user-solution-info">
                                     <h2>{solution.user.username}</h2>
                                     <h3>{solution.user.email}</h3>

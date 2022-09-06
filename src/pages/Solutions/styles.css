@@ -8,10 +8,31 @@
 
 .list-solutions {
     width: 92%;
+    min-height: 100vh;
     display: grid;
     grid-template-columns: auto auto auto;
     column-gap: 112px;
     row-gap: 100px;
     margin-top: 30px;
     margin-bottom: 30px;
+}
+
+.list-solutions .not-found {
+    width: 92vw;
+    height: 76vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.list-solutions h1 {
+    color: #fff;
+    font: 700 1.2rem Roboto;
+    margin-top: 30px;
+}
+
+.list-solutions .image-not-found {
+    width: 60%;
+    height: 60%;
 }

@@ -3,6 +3,7 @@ import api from "../../api";
 import CardChallenger from "../../components/CardChallenger/cardChallenger";
 import NavBar from "../../components/NavBar/navBar";
 import history from "../../history";
+import NotFound from '../../assets/images/not_found.svg';
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -46,11 +47,21 @@ export default function Challenges() {
             </div>
 
             <div className="list-challenger">
-                {challenges.map((value, index) => (
-                    <div key={index}>
-                        <CardChallenger challenge={value}/>
+                {challenges.length === 0 ? (
+                    <div className="not-found">
+                        <img src={NotFound} className="image-not-found"/>
+                        <h1 className="title-not-found">Nenhum desafio encontrado!</h1>
                     </div>
-                ))}
+                ): (
+                    <>
+                        {challenges.map((value, index) => (
+                            <div key={index}>
+                                <CardChallenger challenge={value}/>
+                            </div>
+                        ))}
+                    </>
+                )}
+                
             </div>
         </section>
     )

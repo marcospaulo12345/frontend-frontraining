@@ -48,6 +48,26 @@
     animation: upSlide 1s;
 }
 
+.list-challenger .not-found {
+    width: 92vw;
+    height: 76vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.list-challenger .title-not-found {
+    color: #fff;
+    font: 700 1.2rem Roboto;
+    margin-top: 30px;
+}
+
+.list-challenger .image-not-found {
+    width: 60%;
+    height: 60%;
+}
+
 @keyframes upSlide {
     from {
         transform: translateY(90px);

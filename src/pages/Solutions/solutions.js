@@ -4,6 +4,8 @@ import api from "../../api";
 
 import CardSolution from "../../components/CardSolution/cardSolution";
 
+import NotFound from '../../assets/images/not_found.svg';
+
 import './styles.css'
 
 export default function Solutions() {
@@ -27,11 +29,20 @@ export default function Solutions() {
                 <span></span>
             </div>
             <div className="list-solutions">
-                {solutions.map((value, index) => (
-                    <div key={index}>
-                        <CardSolution solution={value} />
+                {solutions.length === 0 ? (
+                    <div className="not-found">
+                        <img src={NotFound} className="image-not-found"/>
+                        <h1>Nenhuma solução encontrada!</h1>
                     </div>
-                ))}
+                ): (
+                    <>
+                        {solutions.map((value, index) => (
+                            <div key={index}>
+                                <CardSolution solution={value} />
+                            </div>
+                        ))}
+                    </>
+                )}
             </div>
         </section>
     )

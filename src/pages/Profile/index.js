@@ -7,33 +7,42 @@ import { Context } from "../../Context/authContext";
 import CardChallenger from "../../components/CardChallenger/cardChallenger";
 import CardSolution from "../../components/CardSolution/cardSolution";
 
-export default function Profile({userId=true}) {
+export default function Profile(props) {
+    const {user} = useContext(Context);
+
+    console.log(user)
+    const outUser = props.location?.state?.user;
+    const userId = props.location?.state?.userId;
+
     const [challenges, setChallenges] = useState([]);
     const [solutions, setSolutions] = useState([]);
     const [refresh, setRefresh] = useState(false);
 
-    const {user} = useContext(Context)
 
     async function getChallenges() {
-        if(user?.id){
-            const challenges = await api.get(`challenge/user/${user.id}`)
+        if(userId){
+            const challenges = await api.get(`challenge/user/${userId}`)
             setChallenges(challenges.data.challenges)
+        } else {
+            if(user?.id){
+                const challenges = await api.get(`challenge/user/${user.id}`)
+                setChallenges(challenges.data.challenges)
+            }
         }
     }
-
     
     async function getSolutions() {
-        if(user?.id){
-            const solutions = await api.get(`solution/user/${user.id}`)
+        if(userId) {
+            const solutions = await api.get(`solution/user/${userId}`)
             setSolutions(solutions.data.solutions)
+        } else {
+            if(user?.id){
+                const solutions = await api.get(`solution/user/${user.id}`)
+                setSolutions(solutions.data.solutions)
+            }
         }
     }
     
-    function handleMenu(index) {
-
-        console.log(`menu-${index}`)
-        document.getElementById(`menu-${index}`).style.display = 'flex'
-    }
     useEffect(() => {
         getChallenges();
         getSolutions();
@@ -45,31 +54,31 @@ export default function Profile({userId=true}) {
             <div className="profile-header">
                 <div className="profile-header-left">
                     <div className="profile-icon">
-                        <p>M</p>
+                        <p>{userId ? outUser.username[0].toUpperCase() : user?.username[0].toUpperCase()}</p>
                     </div>
                     <div className="profile-info">
-                        <h1>Marcos Paulo</h1>
-                        <h2>marcospaulo@gmail.com</h2>
-                        <p>110 Pontos</p>
+                        <h1>{userId ? outUser.username :user?.username}</h1>
+                        <h2>{userId ? outUser.email :user?.email}</h2>
+                        <p>{userId ? outUser.score : user?.score} Pontos</p>
                     </div>
                 </div>
                 <div className="profile-header-right">
-                    <button>Alterar Dados</button>
+                    {userId ? null :<button>Alterar Dados</button>}
                 </div>
             </div>
-            <h3>Desafios Criados</h3>
+            <h3 className="title-items">Desafios Criados</h3>
             <div className="profile-challenges">
                 {challenges.map((value, index) => (
                     <div key={index} className="profile-challenge-item">
-                        <CardChallenger challenge={value} isUpgradable={true} setRefresh={setRefresh}/>
+                        <CardChallenger challenge={value} isUpgradable={userId ? false : true} setRefresh={setRefresh}/>
                     </div>
                 ))}
             </div>
-            <h3>Soluções Enviadas</h3>
+            <h3 className="title-items">Soluções Enviadas</h3>
             <div className="profile-solutions">
                 {solutions.map((value, index) => (
-                    <div key={index}>
-                        <CardSolution solution={value} isUpgradable={true} setRefresh={setRefresh}/>
+                    <div key={index}c className="profile-solution-item">
+                        <CardSolution solution={value} isUpgradable={userId ? false : true} setRefresh={setRefresh}/>
                     </div>
                 ))}
             </div>

@@ -17,7 +17,7 @@ import { Context } from "../../Context/authContext.js";
 export default function CreateChallege(props) {
 
     const challenge = props.location.state;
-    console.log(challenge)
+
 
     const notify = (status, mensage) => {
         if (status === 200) {
@@ -145,6 +145,9 @@ export default function CreateChallege(props) {
                     console.log(response);
                     notify(200, "Desafio alterado com sucesso");
                     history.push('/desafios')
+                }).catch(response => {
+                    console.log(response.response.data.message);
+                    notify(400, response.response.data.message);
                 })
             } else {
                 await api.post('challenge', data).then(response => {
@@ -244,7 +247,10 @@ export default function CreateChallege(props) {
                     {mensage.assets && <span className="error-mensage">{mensage.assets}</span>}
                     {mensage.message && <span className="error-mensage">{mensage.message}</span>}
                     
-                    <button className="btn-submit">Enviar</button>
+                    {challenge 
+                        ? <button className="btn-submit">Atualizar</button>
+                        : <button className="btn-submit">Enviar</button>
+                    }
                 </div>
             </form> 
         </section>

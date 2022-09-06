@@ -14,7 +14,10 @@ import InputTools from "../../components/InputTools/inputTools.js";
 
 import { Context } from "../../Context/authContext.js";
 
-export default function CreateChallege() {
+export default function CreateChallege(props) {
+
+    const challenge = props.location.state;
+    console.log(challenge)
 
     const notify = (status, mensage) => {
         if (status === 200) {
@@ -25,13 +28,13 @@ export default function CreateChallege() {
       };
 
     const [selectedFile, setSelectedFile] = useState();
-    const [title, setTitle] = useState('');
-    const [description, setDescription] = useState('');
-    const [blockPickerColor, setBlockPickerColor] = useState([]);
-    const [level, setLevel] = useState('');
-    const [selectFont, setSelectFont] = useState([]);
-    const [selectedTool, setSelectedTool] = useState([]);
-    const [assets, setAssets] = useState('');
+    const [title, setTitle] = useState(challenge?.title ?? '');
+    const [description, setDescription] = useState(challenge?.description ?? '');
+    const [blockPickerColor, setBlockPickerColor] = useState( challenge?.colors.split(',') ?? []);
+    const [level, setLevel] = useState(challenge?.level ?? '');
+    const [selectFont, setSelectFont] = useState(challenge?.fonts.split(',') ?? []);
+    const [selectedTool, setSelectedTool] = useState(challenge?.tools.split(',') ?? []);
+    const [assets, setAssets] = useState(challenge?.assets ?? '');
 
     const [mensage, setMensage] = useState({});
 
@@ -137,19 +140,27 @@ export default function CreateChallege() {
 
         console.log(error)
         if (error===false){
-            await api.post('challenge', data).then(response => {
-                console.log(response);
-                notify(200, "Desafio criado com sucesso");
-                history.push('/desafios')
-            }).catch(response => {
-                console.log(response.response.data)
-                let updateValue = {'serverErro': 'Escolhe uma imagem do desafio!'}
-                setMensage(mensage => ({
-                    ...mensage,
-                    ...response.response.data
-                }));
-                error = true
-            })
+            if(challenge){
+                await api.put(`challenge/${challenge?.id_challenge}`, data).then(response => {
+                    console.log(response);
+                    notify(200, "Desafio alterado com sucesso");
+                    history.push('/desafios')
+                })
+            } else {
+                await api.post('challenge', data).then(response => {
+                    console.log(response);
+                    notify(200, "Desafio criado com sucesso");
+                    history.push('/desafios')
+                }).catch(response => {
+                    console.log(response.response.data)
+                    let updateValue = {'serverErro': 'Escolhe uma imagem do desafio!'}
+                    setMensage(mensage => ({
+                        ...mensage,
+                        ...response.response.data
+                    }));
+                    error = true
+                })
+            }
         }
 
     }

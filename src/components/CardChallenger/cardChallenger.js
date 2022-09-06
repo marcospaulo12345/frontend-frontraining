@@ -1,25 +1,50 @@
 import React, {useState} from "react";
+import api from "../../api";
 
 import Page01 from '../../assets/images/page_01.jpg'
 import history from "../../history";
 import { returnColorTools } from "../../utils/tools";
 import Modal from "../Modal";
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import "./styles.css"
 
-export default function CardChallenger({index, challenge, isUpgradable=false}) {
+export default function CardChallenger({index, challenge, isUpgradable=false, setRefresh}) {
     const level = ['Fácil', 'Médio', 'Difícil']
     const colorlevel = ['#6ABECD', '#AAD742', '#F1B604']
     const [isVisible, setIsVisible] = useState(false);
     const [showModal, setShowModal] = useState(false);
+
+    const notify = (status, mensage) => {
+        if (status === 200) {
+          toast.success(mensage);
+        } else if (status===400){
+          toast.error(mensage);
+        }
+    };
 
     function handleModal(e){
         e.preventDefault();
         setShowModal(true)
     }
 
+    function updateChallenge(e) {
+        e.preventDefault();
+        history.push({
+            pathname: 'criar/desafio',
+            state: challenge
+        })
+    }
+
     function removeChallenge() {
-        console.log('desafio removido')
+        api.delete(`challenge/${challenge.id_challenge}`).then(response => {
+            console.log(response);
+            notify(200, response.data.message);
+            setRefresh(true);
+            setIsVisible(false);
+        })
     }
 
     function handleDetails() {
@@ -39,7 +64,7 @@ export default function CardChallenger({index, challenge, isUpgradable=false}) {
                         <div></div>
                     </div>
                     <div className="menu-option" style={{display: isVisible ? 'flex':'none'}}>
-                        <button>Alterar</button>
+                        <button onClick={() => updateChallenge()}>Alterar</button>
                         <button onClick={(e)=>handleModal(e)}>Excluir</button>
                     </div>
                 </>

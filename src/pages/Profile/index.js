@@ -10,6 +10,7 @@ import CardSolution from "../../components/CardSolution/cardSolution";
 export default function Profile({userId=true}) {
     const [challenges, setChallenges] = useState([]);
     const [solutions, setSolutions] = useState([]);
+    const [refresh, setRefresh] = useState(false);
 
     const {user} = useContext(Context)
 
@@ -20,23 +21,23 @@ export default function Profile({userId=true}) {
         }
     }
 
-    function handleMenu(index) {
-
-        console.log(`menu-${index}`)
-        document.getElementById(`menu-${index}`).style.display = 'flex'
-    }
-
+    
     async function getSolutions() {
         if(user?.id){
             const solutions = await api.get(`solution/user/${user.id}`)
             setSolutions(solutions.data.solutions)
         }
     }
+    
+    function handleMenu(index) {
 
+        console.log(`menu-${index}`)
+        document.getElementById(`menu-${index}`).style.display = 'flex'
+    }
     useEffect(() => {
         getChallenges();
         getSolutions();
-    }, [user]);
+    }, [user, refresh]);
 
     return (
         <section className="profile">
@@ -60,7 +61,7 @@ export default function Profile({userId=true}) {
             <div className="profile-challenges">
                 {challenges.map((value, index) => (
                     <div key={index} className="profile-challenge-item">
-                        <CardChallenger challenge={value} isUpgradable={true}/>
+                        <CardChallenger challenge={value} isUpgradable={true} setRefresh={setRefresh}/>
                     </div>
                 ))}
             </div>
@@ -68,7 +69,7 @@ export default function Profile({userId=true}) {
             <div className="profile-solutions">
                 {solutions.map((value, index) => (
                     <div key={index}>
-                        <CardSolution solution={value} isUpgradable={true}/>
+                        <CardSolution solution={value} isUpgradable={true} setRefresh={setRefresh}/>
                     </div>
                 ))}
             </div>

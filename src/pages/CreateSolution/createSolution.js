@@ -12,11 +12,13 @@ import { Context } from "../../Context/authContext";
 import './styles.css'
 
 export default function CreateSolution(props) {
-    const challenge = props.location.state
+    const challenge = props.location.state;
+    const solution = props.location.state2;
+
     const [selectedFile, setSelectedFile] = useState();
-    const [title, setTitle] = useState('');
-    const [linkRepo, setLinkRepo] = useState('');
-    const [linkSite, setLinkSite] = useState('');
+    const [title, setTitle] = useState(solution?.title ?? '');
+    const [linkRepo, setLinkRepo] = useState(solution?.repository ?? '');
+    const [linkSite, setLinkSite] = useState(solution?.site ?? '');
 
     const [mensage, setMensage] = useState({});
 
@@ -96,7 +98,11 @@ export default function CreateSolution(props) {
             error = true
         }
 
-        data.append('challengeId', challenge.id_challenge)
+        if(solution){
+            data.append('challengeId', solution?.challenge?.id_challenge)
+        } else {
+            data.append('challengeId', challenge.id_challenge)
+        }
         data.append('userId', user.id)
         data.append('title', title)
         data.append('repository', linkRepo)
@@ -107,13 +113,23 @@ export default function CreateSolution(props) {
         }
 
         if(error === false){
-            await api.post('solution', data).then(response => {
-                console.log(response);
-                notify(200, "Solução criado com sucesso");
-                history.push('/solucoes')
-            }).catch(response => {
-                console.log(response)
-            })
+            if(solution) {
+                await api.put(`solution/${solution?.id_solution}`, data).then(response => {
+                    console.log(response);
+                    notify(200, "Solução alterada com sucesso");
+                    history.push('/solucoes')
+                }).catch(response => {
+                    console.log(response)
+                })
+            } else {
+                await api.post('solution', data).then(response => {
+                    console.log(response);
+                    notify(200, "Solução criado com sucesso");
+                    history.push('/solucoes')
+                }).catch(response => {
+                    console.log(response)
+                })
+            }
         }
     }
 

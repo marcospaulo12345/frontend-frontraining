@@ -4,25 +4,32 @@ import CardChallenger from "../../components/CardChallenger/cardChallenger";
 import NavBar from "../../components/NavBar/navBar";
 import history from "../../history";
 import NotFound from '../../assets/images/not_found.svg';
+import Pagination from "../../components/Pagination";
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-import "./styles.css"
+import "./styles.css";
+
+const LIMIT = 2;
 
 export default function Challenges() {
     const [challenges, setChallenges] = useState([]);
     const [search, setSearch] = useState('');
+    const [offset, setOffset] = useState(0);
+    const [count, setCount] = useState(0);
     
     async function getChallenges() {
-        await api.get('/challenge').then(response => {
-            setChallenges(response.data.challenges)
+        await api.get(`/challenge?limit=${LIMIT}&offset=${offset}`).then(response => {
+            console.log(response)
+            setChallenges(response.data.challenges.rows)
+            setCount(response.data.challenges.count)
         })
     }
 
     useEffect(() => {
         getChallenges()
-    }, []);
+    }, [offset]);
 
     useEffect(() => {
         if(search){
@@ -63,6 +70,7 @@ export default function Challenges() {
                 )}
                 
             </div>
+            <Pagination limit={LIMIT} total={count} offset={offset} setOffset={setOffset}/>
         </section>
     )
 }

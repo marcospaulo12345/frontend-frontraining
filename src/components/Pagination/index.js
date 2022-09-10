@@ -1,9 +1,11 @@
 import React from "react";
 import './styles.css';
 
+import ArrowLeft from '../../assets/images/arrow-left.png'
+import ArrowRight from '../../assets/images/arrow-right.png'
+
 const MAX_ITEMS = 9;
 const MAX_LEFT = (MAX_ITEMS - 1) / 2;
-
 
 export default function Pagination({limit, total, offset, setOffset}) {
     const current = offset ? (offset / limit) + 1 : 1;
@@ -20,7 +22,10 @@ export default function Pagination({limit, total, offset, setOffset}) {
                 <button 
                     onClick={() => onPageChange(current - 1)}
                     disabled={current === 1}
-                >Anterior</button>
+                    className="button-lr"
+                >
+                    <img src={ArrowLeft} width="30" height="30"/>
+                </button>
             </li>
             {Array.from({length: Math.min(MAX_ITEMS, pages)})
                 .map((_, index) => index + first)
@@ -28,7 +33,7 @@ export default function Pagination({limit, total, offset, setOffset}) {
                     <li key={page}>
                         <button 
                             onClick={() => onPageChange(page)}
-                            className={page === current ? 'pagination__item--active' : null}
+                            className={page === current ? 'pagination__item--active' : 'pagination-item'}
                         >{page}</button>
                     </li>
                 ))
@@ -37,7 +42,10 @@ export default function Pagination({limit, total, offset, setOffset}) {
                 <button 
                     onClick={() => onPageChange(current + 1)}
                     disabled={current === pages}
-                >Próxima</button>
+                    className="button-lr"
+                >
+                    <img src={ArrowRight} width="30" height="30"/>
+                </button>
             </li>
         </ul>
     );

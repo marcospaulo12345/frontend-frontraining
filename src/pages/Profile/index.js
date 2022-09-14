@@ -10,7 +10,6 @@ import CardSolution from "../../components/CardSolution/cardSolution";
 export default function Profile(props) {
     const {user} = useContext(Context);
 
-    console.log(user)
     const outUser = props.location?.state?.user;
     const userId = props.location?.state?.userId;
 
@@ -42,12 +41,13 @@ export default function Profile(props) {
             }
         }
     }
+
     
     useEffect(() => {
         getChallenges();
         getSolutions();
     }, [user, refresh]);
-
+    
     return (
         <section className="profile">
             <NavBar />

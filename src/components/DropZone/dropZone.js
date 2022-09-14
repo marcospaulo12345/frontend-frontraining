@@ -22,14 +22,17 @@ const Dropzone = ({onFileUploaded}) => {
 
     const {getRootProps, getInputProps} = useDropzone({
         onDrop,
-        accept: 'image/*'
+        accept: {
+            'image/png': ['.png'],
+            'image/jpeg': ['.jpeg'],
+          }
     });
 
     return (
         <div className="body-dropzone">
             <img src={Clear} style={{display: selctedFileUrl ? 'block' : 'none'}} className="image-clear" onClick={() => setSelectFileUrl('')}/>
             <div className="dropzone" {...getRootProps()}>
-                <input {...getInputProps()} accept="image/*" />
+                <input {...getInputProps()}/>
 
                 { selctedFileUrl
                     ? (

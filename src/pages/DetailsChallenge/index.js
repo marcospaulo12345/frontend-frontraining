@@ -1,9 +1,11 @@
-import React from "react";
+import React, {useContext} from "react";
 import NavBar from '../../components/NavBar/navBar';
 import history from "../../history";
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+
+import { Context } from "../../Context/authContext";
 
 import './styles.css'
 
@@ -11,6 +13,8 @@ import Copy from '../../assets/images/copy.png';
 import Out from '../../assets/images/out.png'
 
 export default function DetailsChallenge(props) {
+
+    const {user} = useContext(Context);
 
     const notify = (status, mensage) => {
         if (status === 200) {
@@ -24,7 +28,9 @@ export default function DetailsChallenge(props) {
     const level = ['Fácil', 'Médio', 'Difícil']
     const colorlevel = ['#6ABECD', '#AAD742', '#F1B604']
 
-    const challenge = props.location.state
+    const challenge = props.location.state;
+    console.log(challenge.user)
+    console.log('user logado', user)
 
     function copy(value) {
         navigator.clipboard.writeText(value);
@@ -106,7 +112,7 @@ export default function DetailsChallenge(props) {
                         <a href={challenge.assets} target="_blank">{challenge.assets}</a>
                         <img src={Out} width='18' height='18'/>
                     </div>
-                    <button onClick={() => handleCreateSolution()}>Enviar Solução</button>
+                    {challenge?.user?.id === user?.id ? null : (<button onClick={() => handleCreateSolution()}>Enviar Solução</button>)}
                 </div>
             </div>
         </section>

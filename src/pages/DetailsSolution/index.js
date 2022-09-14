@@ -65,8 +65,8 @@ export default function DetailsSolution(props) {
                                 ))}
                             </div>
                             <div className="level" style={{backgroundColor: colorlevel[solution.challenge.level - 1]}}>
-                                <span>1</span>
-                                <p>Fácil</p>
+                                <span>{solution.challenge.level}</span>
+                                <p>{level[solution.challenge.level - 1]}</p>
                             </div>
                         </div>
                     </div>

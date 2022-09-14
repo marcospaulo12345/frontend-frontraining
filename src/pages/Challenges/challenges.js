@@ -11,7 +11,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import "./styles.css";
 
-const LIMIT = 2;
+const LIMIT = 9;
 
 export default function Challenges() {
     const [challenges, setChallenges] = useState([]);

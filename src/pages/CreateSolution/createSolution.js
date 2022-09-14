@@ -120,6 +120,7 @@ export default function CreateSolution(props) {
                     history.push('/solucoes')
                 }).catch(response => {
                     console.log(response)
+                    notify(400, response.response.data.message);
                 })
             } else {
                 await api.post('solution', data).then(response => {
@@ -128,6 +129,7 @@ export default function CreateSolution(props) {
                     history.push('/solucoes')
                 }).catch(response => {
                     console.log(response)
+                    notify(400, response.response.data.message);
                 })
             }
         }

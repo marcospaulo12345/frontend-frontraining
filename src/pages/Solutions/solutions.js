@@ -9,7 +9,7 @@ import NotFound from '../../assets/images/not_found.svg';
 import './styles.css'
 import Pagination from "../../components/Pagination";
 
-const LIMIT = 2;
+const LIMIT = 9;
 
 export default function Solutions() {
     const [solutions, setSolutions] = useState([]);

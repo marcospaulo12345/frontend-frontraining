@@ -41,10 +41,9 @@ export default function CardChallenger({index, challenge, isUpgradable=false, se
 
     function removeChallenge() {
         api.delete(`challenge/${challenge.id_challenge}`).then(response => {
-            console.log(response);
-            notify(200, response.data.message);
-            setRefresh(true);
             setIsVisible(false);
+            setRefresh(true);
+            notify(200, response.data.message);
         }).catch(response => {
             console.log(response.response.data.message);
             notify(400, response.response.data.message);

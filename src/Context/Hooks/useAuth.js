@@ -19,6 +19,19 @@ export default function useAuth(){
 
     }, [])
 
+    useEffect(() => {
+        const token = localStorage.getItem('token');
+        const user = localStorage.getItem('user');
+
+        if(token && user){
+            console.log(JSON.parse(user))
+            api.get(`user/find?id=${JSON.parse(user).id}`).then(response => {
+                setUser(response.data.user);
+            })
+        }
+
+    }, [])
+
     async function handleLogin({email, password}){
         await api.post('/user/auth', {
             "email": email,
@@ -71,7 +84,7 @@ export default function useAuth(){
         localStorage.removeItem('token');
         localStorage.removeItem('user');
         api.defaults.headers.Authorization = undefined;
-
+        history.push('/');
     }
 
     return {authenticated, handleLogin, handleRegister, user, handleLogout}

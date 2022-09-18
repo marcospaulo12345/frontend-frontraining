@@ -18,7 +18,7 @@ export default function NavBar({isHome = false, isChallenge=false, setSearch=fal
     }
 
     return (
-        <div className="navbar" style={{'background-color': isHome === true ? null : '#2C2C2C'}}>
+        <div className="navbar" style={{'backgroundColor': isHome === true ? null : '#2C2C2C'}}>
             <div className="nav-left">
                 <img src={Logo} alt="Logo"/>
             </div>
@@ -46,7 +46,7 @@ export default function NavBar({isHome = false, isChallenge=false, setSearch=fal
                     ): null}
                     <li className="nav-item" id="name-user">
                         {authenticated ? (
-                            <div className="btn-user">
+                            <div className="btn-user" data-testid="menu-items">
                                 <Link to='#'>
                                     <p>{user.username}</p>
                                     <div className="icon-user">

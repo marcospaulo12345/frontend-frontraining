@@ -12,8 +12,8 @@ import { Context } from "../../Context/authContext";
 import './styles.css'
 
 export default function CreateSolution(props) {
-    const challenge = props.location.state;
-    const solution = props.location.state2;
+    const challenge = props.location?.state;
+    const solution = props.location?.state2;
 
     const [selectedFile, setSelectedFile] = useState();
     const [title, setTitle] = useState(solution?.title ?? '');
@@ -140,6 +140,7 @@ export default function CreateSolution(props) {
             <NavBar isHome={false} />
             <form onSubmit={(e) => handleSubmit(e)}>
                 <div className="form-left">
+                    <label>Imagem*</label>
                     <Dropzone onFileUploaded={setSelectedFile} />
                     {mensage.image && <span className="error-mensage">{mensage.image}</span>}
                 </div>

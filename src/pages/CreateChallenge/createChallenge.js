@@ -16,7 +16,7 @@ import { Context } from "../../Context/authContext.js";
 
 export default function CreateChallege(props) {
 
-    const challenge = props.location.state;
+    const challenge = props?.location?.state;
 
 
     const notify = (status, mensage) => {

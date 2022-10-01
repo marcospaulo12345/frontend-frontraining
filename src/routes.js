@@ -1,5 +1,5 @@
-import React from "react";
-import {Switch, Route} from 'react-router-dom';
+import React, { useContext } from "react";
+import {Switch, Route, Redirect} from 'react-router-dom';
 
 import Login from "./pages/Login/login";
 import Home from "./pages/Home/home";
@@ -11,20 +11,51 @@ import Solutions from './pages/Solutions/solutions';
 import CreateSolution from "./pages/CreateSolution/createSolution";
 import DetailsSolution from "./pages/DetailsSolution";
 import Profile from "./pages/Profile";
+import NotFound from "./pages/NotFound";
+
+import { Context } from "./Context/authContext";
+
+function CustomRoute({isPrivate, children, ...rest}) {
+    const {user, authenticated, loading} = useContext(Context);
+
+    if(loading) {
+        return <h1>Loading...</h1>
+    }
+
+    if(isPrivate && !authenticated) {
+        return <Redirect to="/login" />
+    }
+
+    return <Route {...rest} />
+}
 
 export default function Routes() {
+    const { authenticated} = useContext(Context)
     return (
         <Switch>
-            <Route exact path={'/'} component={Home}/>
-            <Route exact path={'/login'} component={Login}/>
-            <Route exact path={'/cadastro'} component={Register}/>
-            <Route exact path={'/desafios'} component={Challenges}/>
-            <Route exact path={'/criar/desafio'} component={CreateChallege}/>
-            <Route exact path={'/desafio/detalhes'} component={DetailsChallenge}/>
-            <Route exact path={'/detalhes/solucao'} component={DetailsSolution} />
-            <Route exact path={'/solucoes'} component={Solutions}/>
-            <Route exact path={'/criar/solucao'} component={CreateSolution}/>
-            <Route exact path={'/perfil'} component={Profile}/>
+            <CustomRoute exact path={'/'} component={Home} />
+            <CustomRoute 
+                exact 
+                path={'/login'} 
+                render={() => 
+                    authenticated ? <Redirect to="/" /> : <Login />
+                }
+            />
+            <CustomRoute 
+                exact 
+                path={'/cadastro'} 
+                render={() => 
+                    authenticated ? <Redirect to="/" /> : <Register />
+                }
+            />
+            <CustomRoute exact path={'/desafios'} component={Challenges}/>
+            <CustomRoute isPrivate exact path={'/criar/desafio'} component={CreateChallege}/>
+            <CustomRoute isPrivate exact path={'/desafio/detalhes'} component={DetailsChallenge}/>
+            <CustomRoute isPrivate exact path={'/detalhes/solucao'} component={DetailsSolution} />
+            <CustomRoute exact path={'/solucoes'} component={Solutions}/>
+            <CustomRoute isPrivate exact path={'/criar/solucao'} component={CreateSolution}/>
+            <CustomRoute isPrivate exact path={'/perfil'} component={Profile}/>
+            <Route path={'*'} component={NotFound} />
         </Switch>
     )
 }

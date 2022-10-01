@@ -15,7 +15,7 @@ export default function CreateSolution(props) {
     const challenge = props.location?.state;
     const solution = props.location?.state2;
 
-    const [selectedFile, setSelectedFile] = useState();
+    const [selectedFile, setSelectedFile] = useState(solution?.image || '');
     const [title, setTitle] = useState(solution?.title ?? '');
     const [linkRepo, setLinkRepo] = useState(solution?.repository ?? '');
     const [linkSite, setLinkSite] = useState(solution?.site ?? '');
@@ -99,10 +99,11 @@ export default function CreateSolution(props) {
         }
 
         if(solution){
-            data.append('challengeId', solution?.challenge?.id_challenge)
+            data.append('challengeId', solution?.challenge?.id)
         } else {
-            data.append('challengeId', challenge.id_challenge)
+            data.append('challengeId', challenge.id)
         }
+        console.log(user)
         data.append('userId', user.id)
         data.append('title', title)
         data.append('repository', linkRepo)
@@ -114,7 +115,7 @@ export default function CreateSolution(props) {
 
         if(error === false){
             if(solution) {
-                await api.put(`solution/${solution?.id_solution}`, data).then(response => {
+                await api.put(`solution/${solution?.id}`, data).then(response => {
                     console.log(response);
                     notify(200, "Solução alterada com sucesso");
                     history.push('/solucoes')
@@ -141,7 +142,7 @@ export default function CreateSolution(props) {
             <form onSubmit={(e) => handleSubmit(e)}>
                 <div className="form-left">
                     <label>Imagem*</label>
-                    <Dropzone onFileUploaded={setSelectedFile} />
+                    <Dropzone onFileUploaded={setSelectedFile} image={solution?.image}/>
                     {mensage.image && <span className="error-mensage">{mensage.image}</span>}
                 </div>
                 <div className="form-right">

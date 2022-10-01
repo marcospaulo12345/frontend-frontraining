@@ -23,20 +23,21 @@ export default function Profile(props) {
             const challenges = await api.get(`challenge/user/${userId}`)
             setChallenges(challenges.data.challenges)
         } else {
-            if(user?.id){
-                const challenges = await api.get(`challenge/user/${user.id}`)
-                setChallenges(challenges.data.challenges)
-            }
+            // const challenges = await api.get(`challenge/user/3`)
+            const challenges = await api.get(`challenge/user/${user.id}`)
+            setChallenges(challenges.data.challenges)
         }
     }
     
     async function getSolutions() {
         if(userId) {
             const solutions = await api.get(`solution/user/${userId}`)
+            console.log(solutions)
             setSolutions(solutions.data.solutions)
         } else {
             if(user?.id){
                 const solutions = await api.get(`solution/user/${user.id}`)
+                console.log(solutions)
                 setSolutions(solutions.data.solutions)
             }
         }
@@ -69,8 +70,8 @@ export default function Profile(props) {
             <h3 className="title-items">Desafios Criados</h3>
             <div className="profile-challenges">
                 {challenges.map((value, index) => (
-                    <div key={index} className="profile-challenge-item">
-                        <CardChallenger challenge={value} isUpgradable={userId ? false : true} setRefresh={setRefresh}/>
+                    <div key={index} className="profile-challenge-item" data-testid={`test-items-${index}`}>
+                        <CardChallenger challenge={value} isUpgradable={userId ? false : true} setRefresh={setRefresh} refresh={refresh}/>
                     </div>
                 ))}
             </div>
@@ -78,7 +79,7 @@ export default function Profile(props) {
             <div className="profile-solutions">
                 {solutions.map((value, index) => (
                     <div key={index}c className="profile-solution-item">
-                        <CardSolution solution={value} isUpgradable={userId ? false : true} setRefresh={setRefresh}/>
+                        <CardSolution solution={value} isUpgradable={userId ? false : true} setRefresh={setRefresh} refresh={refresh}/>
                     </div>
                 ))}
             </div>

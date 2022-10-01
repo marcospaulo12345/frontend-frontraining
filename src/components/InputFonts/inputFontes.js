@@ -19,8 +19,10 @@ export default function InputFonts({selectFont, setSelectFont}) {
 
     function selectFonts(font){
         console.log(font)
-        setSelectFont(selectFont => [...selectFont, font]);
-        setIsVisible(false)
+        if (!selectFont.includes(font)){
+            setSelectFont(selectFont => [...selectFont, font]);
+            setIsVisible(false)
+        }
     }
 
     let getFonts = async () => {
@@ -62,7 +64,7 @@ export default function InputFonts({selectFont, setSelectFont}) {
             ): null}
                 <div className="btn-menu">
                     <button onClick={(e) => handleMenu(e)}>
-                        <img src={Add} width='34' height='34' alt="Icon Adicionar"/>
+                        <img src={Add} width='30' height='30' alt="Icon Adicionar"/>
                     </button>
                     <div className="drop-menu-fonts" style={{'display': isVisible ? 'block' : 'none'}}>
                         <input placeholder="Buscar fontes" onChange={e => setSeachFonts(e.target.value)}/>

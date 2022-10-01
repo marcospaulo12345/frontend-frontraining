@@ -35,7 +35,10 @@ describe("Header Component", () => {
         expect(screen.getByText("Desafios")).toBeInTheDocument();
         expect(screen.getByText("Soluções")).toBeInTheDocument();
     })
-    // test("Deve mostrar menu ao clicar no icone de usuário", () => {
+    // beforeEach(() => {
+    //     jest.mock("../__mocks__/testUser")
+    // })
+    // test("Deve mostrar menu ao clicar no icone de usuário", async () => {
     //     render(
     //         <AuthProvider>
     //             <MemoryRouter>
@@ -43,10 +46,11 @@ describe("Header Component", () => {
     //             </MemoryRouter>
     //         </AuthProvider>
     //     )
-    //     const productContainer = screen.getBy("btn-login");
-    //     const itemMenu = screen.findByText('Perfil')
+    //     screen.debug()
+    //     // const productContainer = screen.getBy("btn-login");
+    //     const itemMenu = await screen.findByText('Perfil')
 
-    //     userEvent.hover(productContainer);
+    //     // userEvent.hover(productContainer);
     //     expect(itemMenu).toBeInTheDocument();
     // })
 })

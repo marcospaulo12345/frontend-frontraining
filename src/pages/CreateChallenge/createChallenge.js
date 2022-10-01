@@ -17,7 +17,7 @@ import { Context } from "../../Context/authContext.js";
 export default function CreateChallege(props) {
 
     const challenge = props?.location?.state;
-
+    console.log(challenge)
 
     const notify = (status, mensage) => {
         if (status === 200) {
@@ -27,7 +27,7 @@ export default function CreateChallege(props) {
         }
       };
 
-    const [selectedFile, setSelectedFile] = useState();
+    const [selectedFile, setSelectedFile] = useState(challenge?.image || '');
     const [title, setTitle] = useState(challenge?.title ?? '');
     const [description, setDescription] = useState(challenge?.description ?? '');
     const [blockPickerColor, setBlockPickerColor] = useState( challenge?.colors.split(',') ?? []);
@@ -132,6 +132,7 @@ export default function CreateChallege(props) {
         data.append('fonts', selectFont.toString());
         data.append('tools', selectedTool.toString());
         data.append('assets', assets);
+        console.log(user)
         data.append('userId', user.id)
 
         if(selectedFile){
@@ -141,7 +142,8 @@ export default function CreateChallege(props) {
         console.log(error)
         if (error===false){
             if(challenge){
-                await api.put(`challenge/${challenge?.id_challenge}`, data).then(response => {
+                console.log(challenge)
+                await api.put(`challenge/${challenge?.id}`, data).then(response => {
                     console.log(response);
                     notify(200, "Desafio alterado com sucesso");
                     history.push('/desafios')
@@ -174,7 +176,7 @@ export default function CreateChallege(props) {
             <form onSubmit={(e) => handleSubmit(e)}>
                 <div className="form-left">
                     <label>Imagem*</label>
-                    <Dropzone onFileUploaded={setSelectedFile} />
+                    <Dropzone onFileUploaded={setSelectedFile} image={challenge?.image} />
                     {mensage.image && <span className="error-mensage">{mensage.image}</span>}
                 </div>
                 <div className="form-right">
@@ -229,7 +231,7 @@ export default function CreateChallege(props) {
                             {mensage.fonts && <span className="error-mensage">{mensage.fonts}</span>}
                         </div>
 
-                        <div>
+                        <div className="tools-div">
                             <label>Ferramentas</label> 
                             <InputTools selectedTool={selectedTool} setSelectedTool = {setSelectedTool} />
                             {mensage.tools && <span className="error-mensage">{mensage.tools}</span>}

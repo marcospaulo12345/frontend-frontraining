@@ -13,7 +13,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import './styles.css';
 
-export default function CardSolution({solution, isUpgradable=false, setRefresh}) {
+export default function CardSolution({solution, isUpgradable=false, setRefresh, refresh}) {
     const [isVisible, setIsVisible] = useState(false);
     const [showModal, setShowModal] = useState(false);
 
@@ -40,10 +40,10 @@ export default function CardSolution({solution, isUpgradable=false, setRefresh})
 
 
     function removeSolution() {
-        api.delete(`solution/${solution.id_solution}`).then(response => {
+        api.delete(`solution/${solution.id}`).then(response => {
             console.log(response);
             setIsVisible(false);
-            setRefresh(true);
+            setRefresh(!refresh);
             notify(200, response.data.message);
         })
     }
@@ -71,7 +71,9 @@ export default function CardSolution({solution, isUpgradable=false, setRefresh})
                 </>
             )}
             <div className="card-solution" onClick={() => handleDetailSolution()}>
-                <img src={`http://localhost:5000/${solution.image}`} width='334' height='224' alt="Imagem da solução"/>
+                <div className="card-solution-img">
+                    <img src={`http://localhost:5000/${solution.image}`} width='334' height='224' alt="Imagem da solução"/>
+                </div>
                 <div className="solution-body">
                     <h1 className="title-solution">{solution.title}</h1>
 

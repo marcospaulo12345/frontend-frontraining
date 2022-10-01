@@ -63,7 +63,9 @@
 .fonts-tools .font-div {
     width: 50% !important;
 }
-
+.fonts-tools .tools-div {
+    width: 50% !important;
+}
 .form-left label {
     color: #fff;
 }

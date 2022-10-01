@@ -5,6 +5,7 @@ import api from "../../api";
 export default function useAuth(){
     const [authenticated, setAuthenticated] = useState(false);
     const [user, setUser] = useState(null);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         const token = localStorage.getItem('token');
@@ -16,7 +17,7 @@ export default function useAuth(){
             setUser(JSON.parse(user));
             setAuthenticated(true);
         }
-
+        setLoading(false);
     }, [])
 
     useEffect(() => {
@@ -37,7 +38,7 @@ export default function useAuth(){
             "email": email,
             "password": password
         }).then(response => {
-            //console.log(response.data);
+            console.log(response.data);
             localStorage.setItem('token', JSON.stringify(response.data.token));
             api.defaults.headers.Authorization = `Bearer ${response.data.token}`;
 
@@ -62,7 +63,7 @@ export default function useAuth(){
             "email": email,
             "password": password
         }).then(response => {
-            //console.log(response.data);
+            console.log(response.data);
 
             localStorage.setItem('token', JSON.stringify(response.data.token));
             api.defaults.headers.Authorization = `Bearer ${response.data.token}`;
@@ -87,5 +88,5 @@ export default function useAuth(){
         history.push('/');
     }
 
-    return {authenticated, handleLogin, handleRegister, user, handleLogout}
+    return {authenticated, handleLogin, handleRegister, user, handleLogout, loading}
 }

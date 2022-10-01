@@ -8,8 +8,9 @@ import "./styles.css";
 
 import Clear from '../../assets/images/Clear.png';
 
-const Dropzone = ({onFileUploaded}) => {
-    const  [selctedFileUrl, setSelectFileUrl] = useState('');
+const Dropzone = ({onFileUploaded, image}) => {
+    const  [selctedFileUrl, setSelectFileUrl] = useState(image || '');
+    const [imageChallenge, setImageChallenge] = useState(image || '');
 
     const onDrop = useCallback(acceptedFiles => {
         const file = acceptedFiles[0];
@@ -27,17 +28,24 @@ const Dropzone = ({onFileUploaded}) => {
             'image/jpeg': ['.jpeg'],
           }
     });
+    function closeImage() {
+        setSelectFileUrl('')
+        setImageChallenge('')
+    }
 
     return (
         <div className="body-dropzone">
-            <img src={Clear} style={{display: selctedFileUrl ? 'block' : 'none'}} className="image-clear" onClick={() => setSelectFileUrl('')}/>
+            <img src={Clear} style={{display: selctedFileUrl ? 'block' : 'none'}} className="image-clear" onClick={() => closeImage()}/>
             <div className="dropzone" {...getRootProps()}>
                 <input {...getInputProps()}/>
 
                 { selctedFileUrl
                     ? (
                         <div>
-                            <img src={selctedFileUrl} alt="Point thumbnail" className="image-chalenge"/>
+                            {imageChallenge 
+                                ? <img src={`http://localhost:5000/${selctedFileUrl}`} alt="Point thumbnail" className="image-chalenge"/>
+                                : <img src={selctedFileUrl} alt="Point thumbnail" className="image-chalenge"/>
+                            }
                         </div>
                     ) : (
                         <img src={Add} className='icon-add' alt="Icon adicionar"/>

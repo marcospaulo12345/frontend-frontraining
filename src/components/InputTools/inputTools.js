@@ -14,8 +14,10 @@ export default function InputTools({selectedTool, setSelectedTool}) {
     const [seachTools, setSeachTools] = useState([]);
 
     function handleSelectedTool(value) {
-        setSelectedTool(selectedTool => [...selectedTool, value]);
-        setIsVisible(false)
+        if(!selectedTool.includes(value)){
+            setSelectedTool(selectedTool => [...selectedTool, value]);
+            setIsVisible(false)
+        }
     }
 
     function clickButton(e) {
@@ -53,7 +55,7 @@ export default function InputTools({selectedTool, setSelectedTool}) {
             ): null}
             <div className="btn-tools">
                 <button onClick={(e) => clickButton(e)}>
-                    <img src={Add} alt='Icone Adicionar' width='34' height='34'/>
+                    <img src={Add} alt='Icone Adicionar' width='30' height='30'/>
                 </button>
                 <div style={{'display': isVisible ? 'block' : 'none'}} className='dropmenu-tools'>
                     <input type='text' placeholder="Buscar ferramenta" onChange={e => setSeachTools(e.target.value)}/>

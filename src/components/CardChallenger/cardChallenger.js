@@ -11,7 +11,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import "./styles.css"
 
-export default function CardChallenger({index, challenge, isUpgradable=false, setRefresh}) {
+export default function CardChallenger({index, challenge, isUpgradable=false, setRefresh, refersh}) {
     const level = ['Fácil', 'Médio', 'Difícil']
     const colorlevel = ['#6ABECD', '#AAD742', '#F1B604']
     const [isVisible, setIsVisible] = useState(false);
@@ -40,14 +40,14 @@ export default function CardChallenger({index, challenge, isUpgradable=false, se
     }
 
     function removeChallenge() {
-        api.delete(`challenge/${challenge.id_challenge}`).then(response => {
+        api.delete(`challenge/${challenge.id}`).then(response => {
             setIsVisible(false);
-            setRefresh(true);
+            setRefresh(!refersh);
             notify(200, response.data.message);
         }).catch(response => {
             console.log(response.response.data.message);
             notify(400, response.response.data.message);
-            setRefresh(true);
+            setRefresh(!refersh);
             setIsVisible(false);
         })
     }
@@ -76,8 +76,9 @@ export default function CardChallenger({index, challenge, isUpgradable=false, se
             )}
             
             <section className="card" onClick={handleDetails}>
-                
-                <img src={`http://localhost:5000/${challenge.image}`} width="334" height="234" alt="Imagem Desafio"></img>
+                <div className="card-image">
+                    <img src={`http://localhost:5000/${challenge.image}`} width="334" height="234" alt="Imagem Desafio"></img>
+                </div>
                 <div className="card-body">
                     <h1 className="title">{challenge.title}</h1>
 

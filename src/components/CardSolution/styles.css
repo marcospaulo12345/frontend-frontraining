@@ -14,8 +14,17 @@
     background-color: #464646;
 }
 
+.card-solution:hover img{
+    transform: scale(1.1);
+}
+
+.card-solution-img {
+    overflow: hidden;
+}
+
 .card-solution img {
     border-radius: 10px 10px 0 0;
+    transition: transform .35s;
 }
 
 .solution-body {

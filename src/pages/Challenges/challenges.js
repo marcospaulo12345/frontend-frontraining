@@ -21,7 +21,6 @@ export default function Challenges() {
     
     async function getChallenges() {
         await api.get(`/challenge?limit=${LIMIT}&offset=${offset}`).then(response => {
-            console.log(response)
             setChallenges(response.data.challenges.rows)
             setCount(response.data.challenges.count)
         })
@@ -62,7 +61,7 @@ export default function Challenges() {
                 ): (
                     <>
                         {challenges.map((value, index) => (
-                            <div key={index}>
+                            <div key={index} data-testid={`test-items-${index}`} >
                                 <CardChallenger challenge={value}/>
                             </div>
                         ))}

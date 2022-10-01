@@ -5,6 +5,7 @@ import Logo from '../../assets/images/logo.png';
 import Search from '../../assets/images/Search.png'
 
 import { Context } from "../../Context/authContext";
+import history from "../../history";
 
 import './styles.css'
 

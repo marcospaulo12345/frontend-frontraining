@@ -54,7 +54,7 @@ export default function DetailsSolution(props) {
             <NavBar isHome={false} />
             <div className="body-details-solution">
                 <div className="div-challenge">
-                    <img src={`http://18.231.189.130:5000/${solution.challenge.image}`} width='206' height='150'/>
+                    <img src={`http://18.230.194.222:5000/${solution.challenge.image}`} width='206' height='150'/>
                     <div className="div-challenge-info">
                         <p>Esta é uma solução para o desafio ...</p>
                         <h1>{solution.challenge.title}</h1>
@@ -73,7 +73,7 @@ export default function DetailsSolution(props) {
                 </div>
 
                 <div className="div-solution">
-                    <img src={`http://18.231.189.130:5000/${solution.image}`} width='700' height='436'/>
+                    <img src={`http://18.230.194.222:5000/${solution.image}`} width='700' height='436'/>
                     <div className="div-solution-info">
                         <h1>{solution.title} </h1>
                         <div className="user-solution">

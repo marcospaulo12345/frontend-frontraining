@@ -43,7 +43,7 @@ const Dropzone = ({onFileUploaded, image}) => {
                     ? (
                         <div>
                             {imageChallenge 
-                                ? <img src={`http://18.231.189.130:5000/${selctedFileUrl}`} alt="Point thumbnail" className="image-chalenge"/>
+                                ? <img src={`http://18.230.194.222:5000/${selctedFileUrl}`} alt="Point thumbnail" className="image-chalenge"/>
                                 : <img src={selctedFileUrl} alt="Point thumbnail" className="image-chalenge"/>
                             }
                         </div>

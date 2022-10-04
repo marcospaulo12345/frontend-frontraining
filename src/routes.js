@@ -12,6 +12,8 @@ import CreateSolution from "./pages/CreateSolution/createSolution";
 import DetailsSolution from "./pages/DetailsSolution";
 import Profile from "./pages/Profile";
 import NotFound from "./pages/NotFound";
+import ForgotPasswordEmail from "./pages/ForgotPasswordEmail";
+import ResetPassword from "./pages/ResetPassword";
 
 import { Context } from "./Context/authContext";
 
@@ -41,6 +43,21 @@ export default function Routes() {
                     authenticated ? <Redirect to="/" /> : <Login />
                 }
             />
+            <CustomRoute 
+                exact 
+                path={'/forgot_password'} 
+                render={() => 
+                    authenticated ? <Redirect to="/" /> : <ForgotPasswordEmail />
+                }
+            />
+            <CustomRoute 
+                exact 
+                path={'/user/reset_password/:token'} 
+                render={() => 
+                    authenticated ? <Redirect to="/" /> : <ResetPassword />
+                }
+            />
+            
             <CustomRoute 
                 exact 
                 path={'/cadastro'} 

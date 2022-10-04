@@ -69,6 +69,7 @@ export default function Login(){
                             {errors.password && <span><b>Erro:</b> {errors.password.message}</span>}
                         </div>
                         {errors.apiError && <span id='apiSpan'><b>Erro:</b> {errors.apiError.message}</span>}
+                        <Link to="/forgot_password">Esqueceu a senha?</Link >
                         <button type='submit' onClick={() => clearErrors()}>Entrar</button>
 
                         <h3>Não possui uma conta?</h3>

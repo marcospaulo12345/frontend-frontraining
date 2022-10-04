@@ -68,7 +68,7 @@ export default function DetailsChallenge(props) {
             <NavBar isHome={false}/>
             <div className="body-details">
                 <div className="body-details-left">
-                    <img src={`http://localhost:5000/${challenge.image}`}  />
+                    <img src={`http://18.231.189.130:5000/${challenge.image}`}  />
                 </div>
                 <div className="body-details-right">
                     <h1>{challenge.title}</h1>

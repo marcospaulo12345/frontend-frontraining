@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/frontend-frontraining/static/css/main.af7f0978.css",
-    "main.js": "/frontend-frontraining/static/js/main.ae4a2dde.js",
-    "static/media/blurry-gradient-haikei.png": "/frontend-frontraining/static/media/blurry-gradient-haikei.2c767532372e797d889e.png",
-    "static/media/page_01.jpg": "/frontend-frontraining/static/media/page_01.56a20a82f1177cc188e7.jpg",
-    "static/media/logo.png": "/frontend-frontraining/static/media/logo.b334686b6e8bd0c75c1e.png",
-    "static/media/undraw_programming_re_kg9v.svg": "/frontend-frontraining/static/media/undraw_programming_re_kg9v.e7fd0478451b8d72ff9b93b1ea475b66.svg",
-    "static/media/imagemReview.svg": "/frontend-frontraining/static/media/imagemReview.79d6e1964317e21d4bc7498deb09c237.svg",
-    "static/media/arrow-left.png": "/frontend-frontraining/static/media/arrow-left.4e76fb6567a73d0171e4.png",
-    "static/media/not_found.svg": "/frontend-frontraining/static/media/not_found.0f82b9eac20eb12d4093ac2b0ea14e90.svg",
-    "index.html": "/frontend-frontraining/index.html",
-    "main.af7f0978.css.map": "/frontend-frontraining/static/css/main.af7f0978.css.map",
-    "main.ae4a2dde.js.map": "/frontend-frontraining/static/js/main.ae4a2dde.js.map"
+    "main.css": "/frontend-frontraining/public/index.html/static/css/main.2f85c6cf.css",
+    "main.js": "/frontend-frontraining/public/index.html/static/js/main.62905c1b.js",
+    "static/media/blurry-gradient-haikei.png": "/frontend-frontraining/public/index.html/static/media/blurry-gradient-haikei.2c767532372e797d889e.png",
+    "static/media/page_01.jpg": "/frontend-frontraining/public/index.html/static/media/page_01.56a20a82f1177cc188e7.jpg",
+    "static/media/logo.png": "/frontend-frontraining/public/index.html/static/media/logo.b334686b6e8bd0c75c1e.png",
+    "static/media/undraw_programming_re_kg9v.svg": "/frontend-frontraining/public/index.html/static/media/undraw_programming_re_kg9v.e7fd0478451b8d72ff9b93b1ea475b66.svg",
+    "static/media/imagemReview.svg": "/frontend-frontraining/public/index.html/static/media/imagemReview.79d6e1964317e21d4bc7498deb09c237.svg",
+    "static/media/arrow-left.png": "/frontend-frontraining/public/index.html/static/media/arrow-left.4e76fb6567a73d0171e4.png",
+    "static/media/not_found.svg": "/frontend-frontraining/public/index.html/static/media/not_found.0f82b9eac20eb12d4093ac2b0ea14e90.svg",
+    "index.html": "/frontend-frontraining/public/index.html/index.html",
+    "main.2f85c6cf.css.map": "/frontend-frontraining/public/index.html/static/css/main.2f85c6cf.css.map",
+    "main.62905c1b.js.map": "/frontend-frontraining/public/index.html/static/js/main.62905c1b.js.map"
   },
   "entrypoints": [
-    "static/css/main.af7f0978.css",
-    "static/js/main.ae4a2dde.js"
+    "static/css/main.2f85c6cf.css",
+    "static/js/main.62905c1b.js"
   ]
 }

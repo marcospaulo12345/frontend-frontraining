@@ -12,6 +12,8 @@ import history from "../../history";
 import './styles.css'
 import { useParams } from "react-router-dom";
 import api from "../../api";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 // const schema = yup.object().shape({
@@ -23,6 +25,14 @@ export default function ResetPassword(props){
     const token = useParams();
     console.log(token)
 
+    const notify = (status, mensage) => {
+        if (status === 200) {
+          toast.success(mensage);
+        } else if (status===400){
+          toast.error(mensage);
+        }
+      };
+
     const [password, setPassword] = useState('');
 
     function resetPassword(e){
@@ -31,6 +41,8 @@ export default function ResetPassword(props){
         api.post(`user/reset_password/${token.token}`, {
             password
         }).then(response => {
+            notify(200, "Senha alterada com sucesso!")
+            history.push('/login')
             console.log(response)
         })
     }

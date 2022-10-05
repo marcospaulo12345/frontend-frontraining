@@ -72,7 +72,7 @@ export default function CardSolution({solution, isUpgradable=false, setRefresh, 
             )}
             <div className="card-solution" onClick={() => handleDetailSolution()}>
                 <div className="card-solution-img">
-                    <img src={`http://52.67.122.192:5000/${solution.image}`} width='334' height='224' alt="Imagem da solução"/>
+                    <img src={`http://15.229.7.196:5000/${solution.image}`} width='334' height='224' alt="Imagem da solução"/>
                 </div>
                 <div className="solution-body">
                     <h1 className="title-solution">{solution.title}</h1>

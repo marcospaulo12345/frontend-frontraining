@@ -51,9 +51,9 @@ export default function ResetPassword(props){
                         <div className='inputSpan'>
                             <input 
                                 placeholder='Nova senha' 
-                                title="email" 
-                                name='email' 
-                                type='text'
+                                title="password" 
+                                name='password' 
+                                type='password'
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
                             />

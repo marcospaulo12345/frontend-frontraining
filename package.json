@@ -2,7 +2,7 @@
   "name": "frontend-frontraining",
   "version": "0.1.0",
   "private": true,
-  "homepage": "./",
+  "homepage": "http://marcospaulo12345.github.io/frontend-frontraining",
   "dependencies": {
     "@hookform/resolvers": "^2.9.7",
     "@testing-library/react": "^13.3.0",
@@ -25,6 +25,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -49,6 +51,7 @@
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.16.5",
+    "gh-pages": "^4.0.0",
     "jest": "^27.5.1",
     "msw": "^0.47.3",
     "nock": "^13.2.9"

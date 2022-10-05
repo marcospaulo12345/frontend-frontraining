@@ -2,7 +2,7 @@
   "name": "frontend-frontraining",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://marcospaulo12345.github.io/frontend-frontraining/public/index.html",
+  "homepage": "http://marcospaulo12345.github.io/frontend-frontraining",
   "dependencies": {
     "@hookform/resolvers": "^2.9.7",
     "@testing-library/react": "^13.3.0",

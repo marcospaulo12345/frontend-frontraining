@@ -18,7 +18,6 @@ export default function InputFonts({selectFont, setSelectFont}) {
     }
 
     function selectFonts(font){
-        console.log(font)
         if (!selectFont.includes(font)){
             setSelectFont(selectFont => [...selectFont, font]);
             setIsVisible(false)

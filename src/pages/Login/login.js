@@ -24,11 +24,9 @@ export default function Login(){
     });
 
     const { handleLogin } = useContext(Context);
-    //console.log(authenticated);
 
     function authenticate(data,e) {
         e.preventDefault();
-        console.log(data);
         handleLogin({"email": data.email, "password": data.password}).catch(response => {
             setError('apiError', {message: response.message});
         });

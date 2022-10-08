@@ -24,13 +24,10 @@ export default function DetailsChallenge(props) {
         }
       };
 
-    // console.log(props.location.state)
     const level = ['Fácil', 'Médio', 'Difícil']
     const colorlevel = ['#6ABECD', '#AAD742', '#F1B604']
 
     const challenge = props.location.state;
-    console.log(challenge.user)
-    console.log('user logado', user)
 
     function copy(value) {
         navigator.clipboard.writeText(value);

@@ -23,7 +23,6 @@ import 'react-toastify/dist/ReactToastify.css';
 
 export default function ResetPassword(props){
     const token = useParams();
-    console.log(token)
 
     const notify = (status, mensage) => {
         if (status === 200) {
@@ -37,13 +36,11 @@ export default function ResetPassword(props){
 
     function resetPassword(e){
         e.preventDefault();
-        console.log(token)
         api.post(`user/reset_password/${token.token}`, {
             password
         }).then(response => {
             notify(200, "Senha alterada com sucesso!")
             history.push('/login')
-            console.log(response)
         })
     }
 

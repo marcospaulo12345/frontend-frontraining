@@ -41,7 +41,6 @@ export default function CardSolution({solution, isUpgradable=false, setRefresh, 
 
     function removeSolution() {
         api.delete(`solution/${solution.id}`).then(response => {
-            console.log(response);
             setIsVisible(false);
             setRefresh(!refresh);
             notify(200, response.data.message);

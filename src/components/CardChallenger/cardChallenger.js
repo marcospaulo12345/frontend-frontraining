@@ -32,7 +32,6 @@ export default function CardChallenger({index, challenge, isUpgradable=false, se
 
     function updateChallenge(e) {
         e.preventDefault();
-        console.log('jhsdkfh')
         history.push({
             pathname: 'criar/desafio',
             state: challenge
@@ -45,7 +44,6 @@ export default function CardChallenger({index, challenge, isUpgradable=false, se
             setRefresh(!refersh);
             notify(200, response.data.message);
         }).catch(response => {
-            console.log(response.response.data.message);
             notify(400, response.response.data.message);
             setRefresh(!refersh);
             setIsVisible(false);

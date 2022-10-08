@@ -14,7 +14,6 @@ export default function DetailsSolution(props) {
 
     const solution = props.location.state
 
-    console.log(solution)
 
     // function difHours(dateChallenge) {
     //     const hoje = new Date();

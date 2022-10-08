@@ -103,7 +103,7 @@ export default function CreateSolution(props) {
         } else {
             data.append('challengeId', challenge.id)
         }
-        console.log(user)
+
         data.append('userId', user.id)
         data.append('title', title)
         data.append('repository', linkRepo)
@@ -116,20 +116,16 @@ export default function CreateSolution(props) {
         if(error === false){
             if(solution) {
                 await api.put(`solution/${solution?.id}`, data).then(response => {
-                    console.log(response);
                     notify(200, "Solução alterada com sucesso");
                     history.push('/solucoes')
                 }).catch(response => {
-                    console.log(response)
                     notify(400, response.response.data.message);
                 })
             } else {
                 await api.post('solution', data).then(response => {
-                    console.log(response);
                     notify(200, "Solução criado com sucesso");
                     history.push('/solucoes')
                 }).catch(response => {
-                    console.log(response)
                     notify(400, response.response.data.message);
                 })
             }

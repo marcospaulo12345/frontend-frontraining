@@ -17,7 +17,6 @@ import { Context } from "../../Context/authContext.js";
 export default function CreateChallege(props) {
 
     const challenge = props?.location?.state;
-    console.log(challenge)
 
     const notify = (status, mensage) => {
         if (status === 200) {
@@ -132,32 +131,25 @@ export default function CreateChallege(props) {
         data.append('fonts', selectFont.toString());
         data.append('tools', selectedTool.toString());
         data.append('assets', assets);
-        console.log(user)
         data.append('userId', user.id)
 
         if(selectedFile){
             data.append('image', selectedFile);
         }
 
-        console.log(error)
         if (error===false){
             if(challenge){
-                console.log(challenge)
                 await api.put(`challenge/${challenge?.id}`, data).then(response => {
-                    console.log(response);
                     notify(200, "Desafio alterado com sucesso");
                     history.push('/desafios')
                 }).catch(response => {
-                    console.log(response.response.data.message);
                     notify(400, response.response.data.message);
                 })
             } else {
                 await api.post('challenge', data).then(response => {
-                    console.log(response);
                     notify(200, "Desafio criado com sucesso");
                     history.push('/desafios')
                 }).catch(response => {
-                    console.log(response.response.data)
                     let updateValue = {'serverErro': 'Escolhe uma imagem do desafio!'}
                     setMensage(mensage => ({
                         ...mensage,

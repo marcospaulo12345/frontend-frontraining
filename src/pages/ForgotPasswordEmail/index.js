@@ -36,7 +36,6 @@ export default function ForgotPasswordEmail(){
         api.post('user/forgot_password', {
             email
         }).then(response => {
-            console.log(response);
             notify(200, "Verifique sua caixa de email para altualizar a senha!")
         })
     }

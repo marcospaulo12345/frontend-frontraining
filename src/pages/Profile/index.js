@@ -32,12 +32,10 @@ export default function Profile(props) {
     async function getSolutions() {
         if(userId) {
             const solutions = await api.get(`solution/user/${userId}`)
-            console.log(solutions)
             setSolutions(solutions.data.solutions)
         } else {
             if(user?.id){
                 const solutions = await api.get(`solution/user/${user.id}`)
-                console.log(solutions)
                 setSolutions(solutions.data.solutions)
             }
         }

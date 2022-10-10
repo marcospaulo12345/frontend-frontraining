@@ -65,7 +65,7 @@ export default function DetailsChallenge(props) {
             <NavBar isHome={false}/>
             <div className="body-details">
                 <div className="body-details-left">
-                    <img src={`http://18.231.121.228:5000/${challenge.image}`}  />
+                    <img src={`https://api.frontraining.ml/${challenge.image}`}  />
                 </div>
                 <div className="body-details-right">
                     <h1>{challenge.title}</h1>

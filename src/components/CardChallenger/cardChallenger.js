@@ -75,7 +75,7 @@ export default function CardChallenger({index, challenge, isUpgradable=false, se
             
             <section className="card" onClick={handleDetails}>
                 <div className="card-image">
-                    <img src={`http://18.231.121.228:5000/${challenge.image}`} width="334" height="234" alt="Imagem Desafio"></img>
+                    <img src={`https://api.frontraining.ml/${challenge.image}`} width="334" height="234" alt="Imagem Desafio"></img>
                 </div>
                 <div className="card-body">
                     <h1 className="title">{challenge.title}</h1>

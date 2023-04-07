@@ -2,11 +2,21 @@ import React from "react";
 
 import NavBar from "../../components/NavBar/navBar";
 import imageHome from '../../assets/images/undraw_programming_re_kg9v.svg'
-import arrowRight from '../../assets/images/arrow-right.png'
+import arrowRight from '../../assets/images/arrow-right.png';
+
+import api from '../../api';
 
 import './styles.css';
+import { useEffect } from "react";
 
 export default function Home(){
+
+    useEffect(() => {
+        api.get('/device/all').then(response => {
+            console.log(response)
+        })
+    }, []);
+
     return (
         <div className="home">
             <NavBar isHome={true}/>

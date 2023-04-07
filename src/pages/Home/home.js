@@ -11,12 +11,6 @@ import { useEffect } from "react";
 
 export default function Home(){
 
-    useEffect(() => {
-        api.get('/device/all').then(response => {
-            console.log(response)
-        })
-    }, []);
-
     return (
         <div className="home">
             <NavBar isHome={true}/>

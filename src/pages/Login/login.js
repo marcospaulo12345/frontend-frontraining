@@ -14,8 +14,8 @@ import './styles.css'
 
 
 const schema = yup.object().shape({
-    email: yup.string().required('Esse campo é obrigatório'),
-    password: yup.string().required('Esse campo é obrigatório'),
+    email: yup.string().required('Esse campo é obrigatório.'),
+    password: yup.string().required('Esse campo é obrigatório.'),
 }).required();
 
 export default function Login(){
